@@ -79,7 +79,6 @@
 		172897E51B04D46E00709B88 /* MiniChallenge 3 */ = {
 			isa = PBXGroup;
 			children = (
-				172897E81B04D46E00709B88 /* AppDelegate.swift */,
 				172897ED1B04D46E00709B88 /* ViewController.swift */,
 				172897EF1B04D46E00709B88 /* Main.storyboard */,
 				172897E61B04D46E00709B88 /* Supporting Files */,
@@ -90,6 +89,7 @@
 		172897E61B04D46E00709B88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				172897E81B04D46E00709B88 /* AppDelegate.swift */,
 				172897F21B04D46E00709B88 /* Images.xcassets */,
 				172897F41B04D46E00709B88 /* LaunchScreen.xib */,
 				172897EA1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld */,
@@ -415,6 +415,7 @@
 				172898071B04D46E00709B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		172898081B04D46E00709B88 /* Build configuration list for PBXNativeTarget "MiniChallenge 3Tests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +424,7 @@
 				1728980A1B04D46E00709B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
