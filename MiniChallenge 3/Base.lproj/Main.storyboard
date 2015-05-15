@@ -184,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88F-gt-qln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="1313"/>
+            <point key="canvasLocation" x="1968" y="1372"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JL8-7M-QIx">
@@ -201,7 +201,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvo-AQ-ipz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="1313"/>
+            <point key="canvasLocation" x="1148" y="1372"/>
+        </scene>
+        <!--Ajustes-->
+        <scene sceneID="49N-Su-LAG">
+            <objects>
+                <viewController id="jFE-Cg-MUr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YHQ-i0-r3H"/>
+                        <viewControllerLayoutGuide type="bottom" id="qdJ-wg-Ba0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eda-hp-cvD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="xox-a0-Hwf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16b-MV-Z2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="1372"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rL6-Fc-yAm">
@@ -234,6 +253,7 @@
                         <segue destination="TEM-f7-Zq5" kind="relationship" relationship="viewControllers" id="NC1-kd-fHo"/>
                         <segue destination="6lf-cr-wLI" kind="relationship" relationship="viewControllers" id="0mB-9Y-w3k"/>
                         <segue destination="fSi-Fb-6Gi" kind="relationship" relationship="viewControllers" id="wqo-vV-suO"/>
+                        <segue destination="jFE-Cg-MUr" kind="relationship" relationship="viewControllers" id="2J5-K7-gkn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhs-2g-hEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +261,10 @@
             <point key="canvasLocation" x="300" y="567"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ajusteIcone" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cHL-kg-4Qx"/>
+        <segue reference="E4n-Ee-FOu"/>
     </inferredMetricsTieBreakers>
 </document>
