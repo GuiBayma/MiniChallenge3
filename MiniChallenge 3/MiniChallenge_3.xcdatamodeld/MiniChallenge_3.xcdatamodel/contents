@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Curso" syncable="YES">
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="faculdade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculdade" inverseName="curso" inverseEntity="Faculdade" syncable="YES"/>
+    </entity>
+    <entity name="Faculdade" syncable="YES">
+        <attribute name="aceitaEnem" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="cidade" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="estado" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorito" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="siteWeb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipoInstituicao" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="curso" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Curso" inverseName="faculdade" inverseEntity="Curso" syncable="YES"/>
+        <relationship name="vestibular" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestibular" inverseName="faculdade" inverseEntity="Vestibular" syncable="YES"/>
+    </entity>
+    <entity name="Vestibular" syncable="YES">
+        <attribute name="dataChamada" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataFimInsc" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataGabarito" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataInicioInsc" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataProvas" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detalhes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="faculdade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculdade" inverseName="vestibular" inverseEntity="Faculdade" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Vestibular" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Curso" positionX="151" positionY="-18" width="128" height="73"/>
+        <element name="Faculdade" positionX="27" positionY="-234" width="128" height="178"/>
+    </elements>
 </model>
