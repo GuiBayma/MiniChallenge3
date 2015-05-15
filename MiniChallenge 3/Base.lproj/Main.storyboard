@@ -8,7 +8,7 @@
         <!--Busca-->
         <scene sceneID="FrR-BC-OTy">
             <objects>
-                <viewController id="TEM-f7-Zq5" sceneMemberID="viewController">
+                <viewController id="TEM-f7-Zq5" customClass="BuscaViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gfs-pu-fPr"/>
                         <viewControllerLayoutGuide type="bottom" id="g0T-gJ-ct1"/>
@@ -33,6 +33,9 @@
                                 <state key="normal" title="Buscar">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buscar:" destination="TEM-f7-Zq5" eventType="touchUpInside" id="MBv-kG-OFN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +62,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
-                        <segue destination="W05-ma-8pl" kind="show" id="aan-rN-1LW"/>
+                        <segue destination="W05-ma-8pl" kind="show" identifier="resultadoBusca" id="aan-rN-1LW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfZ-pn-iaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -99,7 +102,7 @@
         <!--Root View Controller-->
         <scene sceneID="0Qe-Mj-10m">
             <objects>
-                <tableViewController id="idx-l7-LYs" sceneMemberID="viewController">
+                <tableViewController id="idx-l7-LYs" customClass="ResultadoBuscaTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hAw-g6-3T9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,10 +129,11 @@
             </objects>
             <point key="canvasLocation" x="2788" y="-211"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="fe3-NT-b2V">
             <objects>
                 <navigationController id="W05-ma-8pl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Xrg-wO-ees"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="634-Yn-RP5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -190,11 +194,15 @@
             </objects>
             <point key="canvasLocation" x="1968" y="1372"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favoritos-->
         <scene sceneID="JL8-7M-QIx">
             <objects>
                 <navigationController id="fSi-Fb-6Gi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="RxQ-IS-OjC"/>
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="favoritosIcone" id="RxQ-IS-OjC">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="favoritosIconeSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gip-Xl-G7d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -230,11 +238,15 @@
             </objects>
             <point key="canvasLocation" x="300" y="1372"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Vestibulares-->
         <scene sceneID="rL6-Fc-yAm">
             <objects>
                 <navigationController id="6lf-cr-wLI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="vMi-0i-DCu"/>
+                    <tabBarItem key="tabBarItem" title="Vestibulares" image="vestibularesIcon" id="vMi-0i-DCu">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="vestibularesIconSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="q30-eH-caI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -274,8 +286,12 @@
         <image name="ajusteIconeSelecionado" width="32" height="32"/>
         <image name="buscaIcone" width="32" height="32"/>
         <image name="buscaIconeSelecionado" width="32" height="32"/>
+        <image name="favoritosIcone" width="32" height="32"/>
+        <image name="favoritosIconeSelecionado" width="32" height="32"/>
+        <image name="vestibularesIcon" width="32" height="32"/>
+        <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E4n-Ee-FOu"/>
+        <segue reference="cHL-kg-4Qx"/>
     </inferredMetricsTieBreakers>
 </document>
