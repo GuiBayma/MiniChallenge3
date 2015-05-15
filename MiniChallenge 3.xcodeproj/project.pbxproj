@@ -14,6 +14,9 @@
 		172897F31B04D46E00709B88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172897F21B04D46E00709B88 /* Images.xcassets */; };
 		172897F61B04D46E00709B88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172897F41B04D46E00709B88 /* LaunchScreen.xib */; };
 		172898021B04D46E00709B88 /* MiniChallenge_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */; };
+		3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44C1B061A1000A16012 /* Curso.swift */; };
+		3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44E1B061A1000A16012 /* Faculdade.swift */; };
+		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		172897FB1B04D46E00709B88 /* MiniChallenge 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiniChallenge 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172898001B04D46E00709B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge_3Tests.swift; sourceTree = "<group>"; };
+		3EB2B44C1B061A1000A16012 /* Curso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Curso.swift; path = ../Curso.swift; sourceTree = "<group>"; };
+		3EB2B44E1B061A1000A16012 /* Faculdade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculdade.swift; path = ../Faculdade.swift; sourceTree = "<group>"; };
+		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		172897E51B04D46E00709B88 /* MiniChallenge 3 */ = {
 			isa = PBXGroup;
 			children = (
+				3EB2B4451B06175D00A16012 /* Entities */,
 				172897ED1B04D46E00709B88 /* ViewController.swift */,
 				172897EF1B04D46E00709B88 /* Main.storyboard */,
 				172897E61B04D46E00709B88 /* Supporting Files */,
@@ -113,6 +120,16 @@
 				172898001B04D46E00709B88 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3EB2B4451B06175D00A16012 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3EB2B4501B061A1000A16012 /* Vestibular.swift */,
+				3EB2B44E1B061A1000A16012 /* Faculdade.swift */,
+				3EB2B44C1B061A1000A16012 /* Curso.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +233,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				172897EE1B04D46E00709B88 /* ViewController.swift in Sources */,
+				3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */,
 				172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */,
+				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,
 				172897E91B04D46E00709B88 /* AppDelegate.swift in Sources */,
+				3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
