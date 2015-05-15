@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Busca-->
         <scene sceneID="FrR-BC-OTy">
             <objects>
                 <viewController id="TEM-f7-Zq5" sceneMemberID="viewController">
@@ -25,7 +25,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Faculdade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz6-2a-hch">
                                 <rect key="frame" x="234" y="224" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tx-tk-ZBS">
@@ -53,7 +53,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Ve1-y4-DiX"/>
+                    <tabBarItem key="tabBarItem" title="Busca" image="buscaIcone" id="Ve1-y4-DiX">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="buscaIconeSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <segue destination="W05-ma-8pl" kind="show" id="aan-rN-1LW"/>
                     </connections>
@@ -216,7 +220,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="xox-a0-Hwf"/>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="xox-a0-Hwf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="ajusteIconeSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16b-MV-Z2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,6 +271,9 @@
     </scenes>
     <resources>
         <image name="ajusteIcone" width="32" height="32"/>
+        <image name="ajusteIconeSelecionado" width="32" height="32"/>
+        <image name="buscaIcone" width="32" height="32"/>
+        <image name="buscaIconeSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E4n-Ee-FOu"/>
