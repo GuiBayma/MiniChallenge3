@@ -56,19 +56,15 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Busca" image="buscaIcone" id="Ve1-y4-DiX">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="buscaIconeSelecionado"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Busca" id="N7J-dC-SCM"/>
                     <connections>
                         <outlet property="textField" destination="KGq-UW-pDn" id="DHI-jh-B15"/>
-                        <segue destination="W05-ma-8pl" kind="show" identifier="resultadoBusca" id="aan-rN-1LW"/>
+                        <segue destination="idx-l7-LYs" kind="show" identifier="resultadoBusca" id="cKp-TA-PCx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfZ-pn-iaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-211"/>
+            <point key="canvasLocation" x="1968" y="-207"/>
         </scene>
         <!--Vestibulares-->
         <scene sceneID="hti-nn-BSW">
@@ -79,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="CWd-IT-eFj" style="IBUITableViewCellStyleDefault" id="R32-9q-386">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celula" textLabel="CWd-IT-eFj" detailTextLabel="DiR-R6-Dnx" style="IBUITableViewCellStyleSubtitle" id="R32-9q-386">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R32-9q-386" id="EIn-1n-P4D">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -87,11 +83,20 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CWd-IT-eFj">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DiR-R6-Dnx">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vfC-yM-PUL" kind="show" identifier="detail" id="oQL-mC-8oH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -100,9 +105,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vestibulares" id="UDw-16-UMo"/>
-                    <connections>
-                        <segue destination="vfC-yM-PUL" kind="show" id="MYT-2H-bVZ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0r-zG-vV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,7 +127,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rTJ-QI-dYQ">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -137,42 +139,40 @@
                             <outlet property="delegate" destination="idx-l7-LYs" id="AKW-Pb-doE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Busca" id="OV4-tm-22S">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="bBD-Da-TGR">
-                            <connections>
-                                <action selector="returnButton:" destination="idx-l7-LYs" id="KzQ-hS-HSB"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Busca" id="OV4-tm-22S"/>
                     <connections>
                         <segue destination="vfC-yM-PUL" kind="show" id="cHL-kg-4Qx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPd-uq-Td8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="-211"/>
+            <point key="canvasLocation" x="2788" y="-207"/>
         </scene>
-        <!--Item-->
+        <!--Busca-->
         <scene sceneID="fe3-NT-b2V">
             <objects>
                 <navigationController id="W05-ma-8pl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Xrg-wO-ees"/>
+                    <tabBarItem key="tabBarItem" title="Busca" image="buscaIcone" id="Xrg-wO-ees">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="buscaIconeSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="634-Yn-RP5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="idx-l7-LYs" kind="relationship" relationship="rootViewController" id="zDw-qi-4iN"/>
+                        <segue destination="TEM-f7-Zq5" kind="relationship" relationship="rootViewController" id="wbb-KY-tLX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d75-De-55W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="-211"/>
+            <point key="canvasLocation" x="1148" y="-207"/>
         </scene>
         <!--Detail-->
         <scene sceneID="QDP-U6-073">
             <objects>
-                <viewController title="Detail" id="vfC-yM-PUL" sceneMemberID="viewController">
+                <viewController title="Detail" id="vfC-yM-PUL" customClass="DetailViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YOS-Hb-GDe"/>
                         <viewControllerLayoutGuide type="bottom" id="8c0-A6-ffi"/>
@@ -204,7 +204,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="foj-8I-Q1T">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -224,6 +224,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88F-gt-qln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1968" y="1372"/>
+        </scene>
+        <!--Ajustes-->
+        <scene sceneID="X6S-Om-Kav">
+            <objects>
+                <navigationController id="aBJ-H3-zmK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="eH9-7f-ZOy">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="ajusteIconeSelecionado"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wI4-xq-2PP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1ar-CM-V0z" kind="relationship" relationship="rootViewController" id="IV1-Zc-S9E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EwG-kb-HLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="1372"/>
+        </scene>
+        <!--Ajustes-->
+        <scene sceneID="VS1-Nc-h00">
+            <objects>
+                <viewController id="1ar-CM-V0z" customClass="AjustesViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dYu-lJ-1mQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="u42-2X-YFh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SLW-1i-bQn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ajustes" id="cKg-8z-POY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANn-lY-3ZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="2151"/>
         </scene>
         <!--Favoritos-->
         <scene sceneID="JL8-7M-QIx">
@@ -245,29 +285,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvo-AQ-ipz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1148" y="1372"/>
-        </scene>
-        <!--Ajustes-->
-        <scene sceneID="49N-Su-LAG">
-            <objects>
-                <viewController id="jFE-Cg-MUr" customClass="AjustesViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YHQ-i0-r3H"/>
-                        <viewControllerLayoutGuide type="bottom" id="qdJ-wg-Ba0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eda-hp-cvD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="xox-a0-Hwf">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="ajusteIconeSelecionado"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="16b-MV-Z2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="300" y="1372"/>
         </scene>
         <!--Vestibulares-->
         <scene sceneID="rL6-Fc-yAm">
@@ -301,10 +318,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TEM-f7-Zq5" kind="relationship" relationship="viewControllers" id="NC1-kd-fHo"/>
-                        <segue destination="6lf-cr-wLI" kind="relationship" relationship="viewControllers" id="0mB-9Y-w3k"/>
                         <segue destination="fSi-Fb-6Gi" kind="relationship" relationship="viewControllers" id="wqo-vV-suO"/>
-                        <segue destination="jFE-Cg-MUr" kind="relationship" relationship="viewControllers" id="2J5-K7-gkn"/>
+                        <segue destination="W05-ma-8pl" kind="relationship" relationship="viewControllers" id="TSE-fv-UaW"/>
+                        <segue destination="6lf-cr-wLI" kind="relationship" relationship="viewControllers" id="0mB-9Y-w3k"/>
+                        <segue destination="aBJ-H3-zmK" kind="relationship" relationship="viewControllers" id="28A-e1-CX2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhs-2g-hEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,6 +340,6 @@
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E4n-Ee-FOu"/>
+        <segue reference="oQL-mC-8oH"/>
     </inferredMetricsTieBreakers>
 </document>
