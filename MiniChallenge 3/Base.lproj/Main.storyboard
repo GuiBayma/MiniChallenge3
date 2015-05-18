@@ -62,6 +62,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
+                        <outlet property="textField" destination="KGq-UW-pDn" id="DHI-jh-B15"/>
                         <segue destination="W05-ma-8pl" kind="show" identifier="resultadoBusca" id="aan-rN-1LW"/>
                     </connections>
                 </viewController>
@@ -69,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="1148" y="-211"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Vestibulares-->
         <scene sceneID="hti-nn-BSW">
             <objects>
                 <tableViewController id="TuO-WX-bxV" customClass="VestibularesTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,10 +79,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="R32-9q-386">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="CWd-IT-eFj" style="IBUITableViewCellStyleDefault" id="R32-9q-386">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R32-9q-386" id="EIn-1n-P4D">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CWd-IT-eFj">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +99,7 @@
                             <outlet property="delegate" destination="TuO-WX-bxV" id="zCv-8z-vKH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="UDw-16-UMo"/>
+                    <navigationItem key="navigationItem" title="Vestibulares" id="UDw-16-UMo"/>
                     <connections>
                         <segue destination="vfC-yM-PUL" kind="show" id="MYT-2H-bVZ"/>
                     </connections>
@@ -99,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="1968" y="567"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Busca-->
         <scene sceneID="0Qe-Mj-10m">
             <objects>
                 <tableViewController id="idx-l7-LYs" customClass="ResultadoBuscaTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,10 +117,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="BbJ-zQ-w64">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rTJ-QI-dYQ" style="IBUITableViewCellStyleDefault" id="BbJ-zQ-w64">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BbJ-zQ-w64" id="vFt-ZZ-xug">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rTJ-QI-dYQ">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -120,7 +137,13 @@
                             <outlet property="delegate" destination="idx-l7-LYs" id="AKW-Pb-doE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="OV4-tm-22S"/>
+                    <navigationItem key="navigationItem" title="Busca" id="OV4-tm-22S">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="bBD-Da-TGR">
+                            <connections>
+                                <action selector="returnButton:" destination="idx-l7-LYs" id="KzQ-hS-HSB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="vfC-yM-PUL" kind="show" id="cHL-kg-4Qx"/>
                     </connections>
@@ -164,7 +187,7 @@
             </objects>
             <point key="canvasLocation" x="2788" y="567"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favoritos-->
         <scene sceneID="FNP-5z-eoq">
             <objects>
                 <tableViewController id="J3z-1d-0BP" customClass="FavoritosTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,10 +196,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wgB-zz-fIB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="foj-8I-Q1T" style="IBUITableViewCellStyleDefault" id="wgB-zz-fIB">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wgB-zz-fIB" id="a5y-F9-9uR">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="foj-8I-Q1T">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -185,7 +216,7 @@
                             <outlet property="delegate" destination="J3z-1d-0BP" id="FWr-OX-xuz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ZCG-lz-JTL"/>
+                    <navigationItem key="navigationItem" title="Favoritos" id="ZCG-lz-JTL"/>
                     <connections>
                         <segue destination="vfC-yM-PUL" kind="show" id="E4n-Ee-FOu"/>
                     </connections>
@@ -292,6 +323,6 @@
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cHL-kg-4Qx"/>
+        <segue reference="E4n-Ee-FOu"/>
     </inferredMetricsTieBreakers>
 </document>

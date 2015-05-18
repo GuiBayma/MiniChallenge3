@@ -15,8 +15,14 @@ class BuscaViewController: UIViewController {
 
     }
 
+    @IBOutlet weak var textField: UITextField!
+    
     @IBAction func buscar(sender: UIButton) {
         self.performSegueWithIdentifier("resultadoBusca", sender: self)
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        textField.resignFirstResponder()
     }
 
     /*
