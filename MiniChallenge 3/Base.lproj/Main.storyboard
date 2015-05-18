@@ -72,7 +72,7 @@
         <!--Root View Controller-->
         <scene sceneID="hti-nn-BSW">
             <objects>
-                <tableViewController id="TuO-WX-bxV" sceneMemberID="viewController">
+                <tableViewController id="TuO-WX-bxV" customClass="VestibularesTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SdM-NH-5jk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
         <!--Root View Controller-->
         <scene sceneID="FNP-5z-eoq">
             <objects>
-                <tableViewController id="J3z-1d-0BP" sceneMemberID="viewController">
+                <tableViewController id="J3z-1d-0BP" customClass="FavoritosTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wwY-Od-aik">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,7 +218,7 @@
         <!--Ajustes-->
         <scene sceneID="49N-Su-LAG">
             <objects>
-                <viewController id="jFE-Cg-MUr" sceneMemberID="viewController">
+                <viewController id="jFE-Cg-MUr" customClass="AjustesViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YHQ-i0-r3H"/>
                         <viewControllerLayoutGuide type="bottom" id="qdJ-wg-Ba0"/>
