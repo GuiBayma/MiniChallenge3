@@ -9,11 +9,6 @@
 import UIKit
 
 class ResultadoBuscaTableViewController: UITableViewController {
-
-    @IBAction func returnButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
