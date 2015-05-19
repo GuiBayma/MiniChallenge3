@@ -17,6 +17,7 @@
 		172898021B04D46E00709B88 /* MiniChallenge_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */; };
 		17CD83281B0A2152003A7956 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83271B0A2152003A7956 /* DetailViewController.swift */; };
 		17CD832A1B0A2789003A7956 /* AjustesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83291B0A2789003A7956 /* AjustesViewController.swift */; };
+		3E2D645B1B0B5CF400704589 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2D645A1B0B5CF400704589 /* CloudKit.framework */; };
 		3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44C1B061A1000A16012 /* Curso.swift */; };
 		3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44E1B061A1000A16012 /* Faculdade.swift */; };
 		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
@@ -49,6 +50,8 @@
 		172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge_3Tests.swift; sourceTree = "<group>"; };
 		17CD83271B0A2152003A7956 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		17CD83291B0A2789003A7956 /* AjustesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesViewController.swift; sourceTree = "<group>"; };
+		3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MiniChallenge 3.entitlements"; sourceTree = "<group>"; };
+		3E2D645A1B0B5CF400704589 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3EB2B44C1B061A1000A16012 /* Curso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Curso.swift; path = ../Curso.swift; sourceTree = "<group>"; };
 		3EB2B44E1B061A1000A16012 /* Faculdade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculdade.swift; path = ../Faculdade.swift; sourceTree = "<group>"; };
 		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2D645B1B0B5CF400704589 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 		172897DA1B04D46E00709B88 = {
 			isa = PBXGroup;
 			children = (
+				3E2D645A1B0B5CF400704589 /* CloudKit.framework */,
 				172897E51B04D46E00709B88 /* MiniChallenge 3 */,
 				172897FE1B04D46E00709B88 /* MiniChallenge 3Tests */,
 				172897E41B04D46E00709B88 /* Products */,
@@ -95,6 +100,7 @@
 		172897E51B04D46E00709B88 /* MiniChallenge 3 */ = {
 			isa = PBXGroup;
 			children = (
+				3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */,
 				3EB2B4451B06175D00A16012 /* Entities */,
 				1703C9871B0660CD00180DA4 /* BuscaViewController.swift */,
 				17CD83271B0A2152003A7956 /* DetailViewController.swift */,
@@ -196,6 +202,12 @@
 				TargetAttributes = {
 					172897E21B04D46E00709B88 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 697P37VMLH;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					172897FA1B04D46E00709B88 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -386,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MiniChallenge 3/MiniChallenge 3.entitlements";
 				INFOPLIST_FILE = "MiniChallenge 3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -396,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MiniChallenge 3/MiniChallenge 3.entitlements";
 				INFOPLIST_FILE = "MiniChallenge 3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
