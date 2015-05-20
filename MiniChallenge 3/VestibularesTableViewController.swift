@@ -38,10 +38,15 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("celula", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("celulaVestibulares", forIndexPath: indexPath) as! VestibularTableViewCell
 
-        cell.textLabel?.text = model.vestibulares[indexPath.row].nome
-        cell.detailTextLabel?.text = model.vestibulares[indexPath.row].detalhes
+        cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/mm"
+        var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
+        cell.inscricaoLabel.text = inscString
+        var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
+        cell.provaLabel.text = provaString
 
         return cell
     }
