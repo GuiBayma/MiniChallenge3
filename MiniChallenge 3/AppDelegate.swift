@@ -9,15 +9,62 @@
 import UIKit
 import CoreData
 
+let kReachableWithWifi = "ReachableWithWifi"
+let kNotReachable = "NotReachable"
+let kReachableWithWwan = "ReachableWithWwan"
+
+var reachability: Reachability?
+var reachabilityStatus = kReachableWithWifi
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+    var internetReach: Reachability?
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:", name: kReachabilityChangedNotification, object: nil)
+        
+        internetReach = Reachability.reachabilityForInternetConnection()
+        internetReach?.startNotifier()
+        if internetReach != nil
+        {       self.statusChangedWithReachabilty(internetReach!)       }
+        
         return true
+    }
+    
+    func reachabilityChanged(notification: NSNotification)
+    {
+        println("Reachability Status Changed...")
+        reachability = notification.object as? Reachability
+        self.statusChangedWithReachabilty(reachability!)
+    }
+    
+    func statusChangedWithReachabilty(currentReacabilityStatus: Reachability)
+    {
+        var networkStatus: NetworkStatus = currentReacabilityStatus.currentReachabilityStatus()
+        var statusString: String = ""
+        
+        println("StatusValue: \(networkStatus.value)")
+        
+        if networkStatus.value == NotReachable.value
+        {
+            println("Network Not Reachable...")
+            reachabilityStatus = kNotReachable
+        }
+        else if networkStatus.value == ReachableViaWiFi.value
+        {
+            println("Reachable via Wifi")
+            reachabilityStatus = kReachableWithWifi
+        }
+        else if networkStatus.value == ReachableViaWWAN.value
+        {
+            println("Reachable via Wwan")
+            reachabilityStatus = kReachableWithWwan
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("ReachStatusChanged", object: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -41,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: kReachabilityChangedNotification, object: nil)
         self.saveContext()
     }
 

@@ -28,6 +28,7 @@
 		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
 		A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */; };
 		A16DFBFF1B0A08A300815885 /* VestibularesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */; };
+		A1E084931B0CD3DD00B554C8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E084921B0CD3DD00B554C8 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,9 @@
 		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
 		A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritosTableViewController.swift; sourceTree = "<group>"; };
 		A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularesTableViewController.swift; sourceTree = "<group>"; };
+		A1E084901B0CD3DC00B554C8 /* MiniChallenge 3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiniChallenge 3-Bridging-Header.h"; sourceTree = "<group>"; };
+		A1E084911B0CD3DD00B554C8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A1E084921B0CD3DD00B554C8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,9 @@
 				172897F41B04D46E00709B88 /* LaunchScreen.xib */,
 				172897EA1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld */,
 				172897E71B04D46E00709B88 /* Info.plist */,
+				A1E084911B0CD3DD00B554C8 /* Reachability.h */,
+				A1E084921B0CD3DD00B554C8 /* Reachability.m */,
+				A1E084901B0CD3DC00B554C8 /* MiniChallenge 3-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 				3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */,
 				1703C9881B0660CD00180DA4 /* BuscaViewController.swift in Sources */,
 				A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */,
+				A1E084931B0CD3DD00B554C8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "MiniChallenge 3/MiniChallenge 3.entitlements";
 				INFOPLIST_FILE = "MiniChallenge 3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MiniChallenge 3/MiniChallenge 3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -437,10 +448,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "MiniChallenge 3/MiniChallenge 3.entitlements";
 				INFOPLIST_FILE = "MiniChallenge 3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MiniChallenge 3/MiniChallenge 3-Bridging-Header.h";
 			};
 			name = Release;
 		};

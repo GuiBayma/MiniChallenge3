@@ -15,18 +15,59 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
+        
         model.delegate = self
         model.refreshFaculdade()
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool)
+    {       self.reachabilityStatusChanged()        }
+    
+    func reachabilityStatusChanged()
+    {
+        if reachabilityStatus == kNotReachable
+        {
+            //Alerta
+            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Neste primeiro acesso vc deve estar conectado a alguma rede Wi-fi.", preferredStyle: .Alert)
+            
+            let acao1: UIAlertAction = UIAlertAction (title: "OK", style: .Default)
+                {       action -> Void in println("ok")     }
+            alerta.addAction(acao1)
+            self.presentViewController(alerta, animated: true, completion: nil)
+        }
+        else if reachabilityStatus == kReachableWithWifi
+        {
+            
+        }
+        else if reachabilityStatus == kReachableWithWwan
+        {
+            //Alerta
+            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Vc está prestes a usar uma quantidade muito grande de dados. Deseja se conectar a uma rede Wi-fi? ", preferredStyle: .Alert)
+            
+            let acao1: UIAlertAction = UIAlertAction (title: "Não", style: .Default)
+                {       action -> Void in println("Apareceu!!! ")     }
+            alerta.addAction(acao1)
+            
+            let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default)
+                {   action -> Void in println("Apareceu Denovo!!!!! ")      }
+            alerta.addAction(acao2)
+            
+            self.presentViewController(alerta, animated: true, completion: nil)
+        }
     }
+    
+    deinit
+    {       NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)      }
 
+    override func didReceiveMemoryWarning()
+    {        super.didReceiveMemoryWarning()        }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
