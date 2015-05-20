@@ -18,6 +18,7 @@
 		17CD83281B0A2152003A7956 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83271B0A2152003A7956 /* DetailViewController.swift */; };
 		17CD832A1B0A2789003A7956 /* AjustesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83291B0A2789003A7956 /* AjustesViewController.swift */; };
 		3E2D645B1B0B5CF400704589 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2D645A1B0B5CF400704589 /* CloudKit.framework */; };
+		3E2D645F1B0B762D00704589 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2D645E1B0B762D00704589 /* CloudKit.swift */; };
 		3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44C1B061A1000A16012 /* Curso.swift */; };
 		3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44E1B061A1000A16012 /* Faculdade.swift */; };
 		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
@@ -52,6 +53,7 @@
 		17CD83291B0A2789003A7956 /* AjustesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesViewController.swift; sourceTree = "<group>"; };
 		3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MiniChallenge 3.entitlements"; sourceTree = "<group>"; };
 		3E2D645A1B0B5CF400704589 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		3E2D645E1B0B762D00704589 /* CloudKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		3EB2B44C1B061A1000A16012 /* Curso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Curso.swift; path = ../Curso.swift; sourceTree = "<group>"; };
 		3EB2B44E1B061A1000A16012 /* Faculdade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculdade.swift; path = ../Faculdade.swift; sourceTree = "<group>"; };
 		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */,
+				3E2D64601B0B763200704589 /* CloudKit */,
 				3EB2B4451B06175D00A16012 /* Entities */,
 				1703C9871B0660CD00180DA4 /* BuscaViewController.swift */,
 				17CD83271B0A2152003A7956 /* DetailViewController.swift */,
@@ -141,6 +144,14 @@
 				172898001B04D46E00709B88 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E2D64601B0B763200704589 /* CloudKit */ = {
+			isa = PBXGroup;
+			children = (
+				3E2D645E1B0B762D00704589 /* CloudKit.swift */,
+			);
+			name = CloudKit;
 			sourceTree = "<group>";
 		};
 		3EB2B4451B06175D00A16012 /* Entities */ = {
@@ -263,6 +274,7 @@
 				17CD83281B0A2152003A7956 /* DetailViewController.swift in Sources */,
 				A16DFBFF1B0A08A300815885 /* VestibularesTableViewController.swift in Sources */,
 				1703C98A1B06630300180DA4 /* ResultadoBuscaTableViewController.swift in Sources */,
+				3E2D645F1B0B762D00704589 /* CloudKit.swift in Sources */,
 				3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */,
 				172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */,
 				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,

@@ -8,11 +8,15 @@
 
 import UIKit
 
-class VestibularesTableViewController: UITableViewController {
 
+class VestibularesTableViewController: UITableViewController, CloudKitDelegate{
+    
+    let model: CloudKit = CloudKit.sharedInstance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        model.delegate = self
+        cloudKit.fetchTodos(nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,7 +40,8 @@ class VestibularesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1
+        NSLog("\(cloudKit.vestibulares.count)")
+        return cloudKit.vestibulares.count
     }
 
     
@@ -44,13 +49,25 @@ class VestibularesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("celula", forIndexPath: indexPath) as! UITableViewCell
        // let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "celula")
 
-        cell.textLabel?.text = "celula"
-        cell.detailTextLabel?.text = "descrição"
+        cell.textLabel?.text = cloudKit.vestibulares[indexPath.row].nome
+        cell.detailTextLabel?.text = cloudKit.vestibulares[indexPath.row].detalhes
 
         return cell
     }
     
-
+    func modelUpdated() {
+        NSLog("Model refreshed \(cloudKit.vestibulares.count)")
+        refreshControl?.endRefreshing()
+        tableView.reloadData()
+    }
+    
+    func errorUpdating(error: NSError) {
+        let message = error.localizedDescription
+        let alert = UIAlertView(title: "Error Loading Todos",
+            message: message, delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
