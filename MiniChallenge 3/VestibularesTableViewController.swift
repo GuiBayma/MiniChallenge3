@@ -9,19 +9,17 @@
 import UIKit
 
 
-class VestibularesTableViewController: UITableViewController, CloudKitDelegate{
+class VestibularesTableViewController: UITableViewController, CloudKitHelperDelegate{
     
-    let model: CloudKit = CloudKit.sharedInstance()
+    let model = CloudKitHelper.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
-        cloudKit.fetchTodos(nil)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        model.refresh()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(model, action: "refresh", forControlEvents: .ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +38,7 @@ class VestibularesTableViewController: UITableViewController, CloudKitDelegate{
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        NSLog("\(cloudKit.vestibulares.count)")
-        return cloudKit.vestibulares.count
+        return CloudKitHelper.sharedInstance().items.count
     }
 
     
@@ -49,14 +46,13 @@ class VestibularesTableViewController: UITableViewController, CloudKitDelegate{
         let cell = tableView.dequeueReusableCellWithIdentifier("celula", forIndexPath: indexPath) as! UITableViewCell
        // let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "celula")
 
-        cell.textLabel?.text = cloudKit.vestibulares[indexPath.row].nome
-        cell.detailTextLabel?.text = cloudKit.vestibulares[indexPath.row].detalhes
+        cell.textLabel?.text = model.items[indexPath.row].name
+        cell.detailTextLabel?.text = model.items[indexPath.row].descricao
 
         return cell
     }
     
     func modelUpdated() {
-        NSLog("Model refreshed \(cloudKit.vestibulares.count)")
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
