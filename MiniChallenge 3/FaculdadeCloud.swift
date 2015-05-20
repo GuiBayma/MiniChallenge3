@@ -12,9 +12,14 @@ import CloudKit
 class FaculdadeCloud : NSObject {
     
     var record : CKRecord!
-    var name : String!
-    var descricao : String!
     weak var database : CKDatabase!
+    var nome : String!
+    var tipoInstituicao : NSNumber!
+    var favorito : NSNumber!
+    var estado : String!
+    var cidade : String!
+    var siteWeb : String!
+    var aceitaEnem : NSNumber!
     
     var assetCount = 0
     
@@ -22,13 +27,18 @@ class FaculdadeCloud : NSObject {
         self.record = record
         self.database = database
         
-        self.name = record.objectForKey("Name") as! String
-        self.descricao = record.objectForKey("Descricao") as! String
+        self.nome = record.objectForKey("nome") as! String
+        self.tipoInstituicao = record.objectForKey("tipoInstituicao") as! NSNumber
+        self.favorito = record.objectForKey("favorito") as! NSNumber
+        self.estado = record.objectForKey("estado") as! String
+        self.cidade = record.objectForKey("cidade") as! String
+        self.siteWeb = record.objectForKey("siteWeb") as! String
+        self.aceitaEnem = record.objectForKey("aceitaEnem") as! String
     }
     
     func fetchPhotos(completion:(assets: [CKRecord]!)->()) {
-        let predicate = NSPredicate(format: "Faculdades == %@", record)
-        let query = CKQuery(recordType: "Photo", predicate: predicate);
+        let predicate = NSPredicate(format: "Faculdade == %@", record)
+        let query = CKQuery(recordType: "Imagem", predicate: predicate);
         //Intermediate Extension Point - with cursors
         database.performQuery(query, inZoneWithID: nil) { results, error in
             if error == nil {
@@ -45,7 +55,7 @@ class FaculdadeCloud : NSObject {
                 DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)){
                     var image: UIImage!
                     // 2
-                    if let asset = self.record.objectForKey("Photo") as? CKAsset {
+                    if let asset = self.record.objectForKey("Imagem") as? CKAsset {
                         // 3
                         if let url = asset.fileURL {
                             let imageData = NSData(contentsOfFile: url.path!)!

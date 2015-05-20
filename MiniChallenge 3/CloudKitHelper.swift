@@ -23,7 +23,9 @@ protocol CloudKitHelperDelegate {
     
     var delegate : CloudKitHelperDelegate?
     
-    var items = [FaculdadeCloud]()
+    var faculdades = [FaculdadeCloud]()
+    var vestibulares = [VestibularCloud]()
+    var cursos = [CursoCloud]()
     
     let container : CKContainer
     let publicDB : CKDatabase
@@ -36,10 +38,10 @@ protocol CloudKitHelperDelegate {
         
     }
     
-    func refresh() {
+    func refreshFaculdade() {
         let predicate = NSPredicate(value: true)
         //let sort = NSSortDescriptor(key: "Name", ascending: false)
-        let query = CKQuery(recordType: "Faculdades", predicate: predicate)
+        let query = CKQuery(recordType: "Faculdade", predicate: predicate)
         //query.sortDescriptors = [sort]
         publicDB.performQuery(query, inZoneWithID: nil) { results, error in
             if error != nil {
@@ -48,10 +50,60 @@ protocol CloudKitHelperDelegate {
                     println("error loading: \(error)")
                 }
             } else {
-                self.items.removeAll(keepCapacity: true)
+                self.faculdades.removeAll(keepCapacity: true)
                 for record in results {
                     let faculdade = FaculdadeCloud(record: record as! CKRecord, database:self.publicDB)
-                    self.items.append(faculdade)
+                    self.faculdades.append(faculdade)
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.modelUpdated()
+                    println()
+                }
+            }
+        }
+    }
+    
+    func refreshVestibular() {
+        let predicate = NSPredicate(value: true)
+        //let sort = NSSortDescriptor(key: "Name", ascending: false)
+        let query = CKQuery(recordType: "Vestibular", predicate: predicate)
+        //query.sortDescriptors = [sort]
+        publicDB.performQuery(query, inZoneWithID: nil) { results, error in
+            if error != nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.errorUpdating(error)
+                    println("error loading: \(error)")
+                }
+            } else {
+                self.faculdades.removeAll(keepCapacity: true)
+                for record in results {
+                    let vestibular = VestibularCloud(record: record as! CKRecord, database:self.publicDB)
+                    self.vestibulares.append(vestibular)
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.modelUpdated()
+                    println()
+                }
+            }
+        }
+    }
+    
+    func refreshCurso() {
+        let predicate = NSPredicate(value: true)
+        //let sort = NSSortDescriptor(key: "Name", ascending: false)
+        let query = CKQuery(recordType: "Curso", predicate: predicate)
+        //query.sortDescriptors = [sort]
+        publicDB.performQuery(query, inZoneWithID: nil) { results, error in
+            if error != nil {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.delegate?.errorUpdating(error)
+                    println("error loading: \(error)")
+                }
+            } else {
+                self.cursos.removeAll(keepCapacity: true)
+                for record in results {
+                    let curso = CursoCloud(record: record as! CKRecord, database:self.publicDB)
+                    self.cursos.append(curso)
                 }
                 dispatch_async(dispatch_get_main_queue()) {
                     self.delegate?.modelUpdated()
