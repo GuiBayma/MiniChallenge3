@@ -42,7 +42,7 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
 
         cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/mm"
+        dateFormatter.dateFormat = "dd/MM"
         var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
         cell.inscricaoLabel.text = inscString
         var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
