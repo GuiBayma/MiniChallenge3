@@ -33,12 +33,12 @@ class FaculdadeCloud : NSObject {
         self.estado = record.objectForKey("estado") as! String
         self.cidade = record.objectForKey("cidade") as! String
         self.siteWeb = record.objectForKey("siteWeb") as! String
-        self.aceitaEnem = record.objectForKey("aceitaEnem") as! String
+        self.aceitaEnem = record.objectForKey("aceitaEnem") as! NSNumber
     }
     
     func fetchPhotos(completion:(assets: [CKRecord]!)->()) {
         let predicate = NSPredicate(format: "Faculdade == %@", record)
-        let query = CKQuery(recordType: "Imagem", predicate: predicate);
+        let query = CKQuery(recordType: "imagem", predicate: predicate);
         //Intermediate Extension Point - with cursors
         database.performQuery(query, inZoneWithID: nil) { results, error in
             if error == nil {
@@ -55,7 +55,7 @@ class FaculdadeCloud : NSObject {
                 DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)){
                     var image: UIImage!
                     // 2
-                    if let asset = self.record.objectForKey("Imagem") as? CKAsset {
+                    if let asset = self.record.objectForKey("imagem") as? CKAsset {
                         // 3
                         if let url = asset.fileURL {
                             let imageData = NSData(contentsOfFile: url.path!)!

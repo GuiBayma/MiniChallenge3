@@ -18,18 +18,8 @@ class Vestibular: NSManagedObject {
     @NSManaged var dataGabarito: NSDate
     @NSManaged var dataChamada: NSDate
     @NSManaged var dataProvas: NSDate
-//    @NSManaged var detalhes: String
+    @NSManaged var detalhes: String
     @NSManaged var faculdade: Faculdade
-//    @NSManaged var nome: String
+    @NSManaged var nome: String
     
-    var nome : String!
-    var detalhes : String!
-    var record : CKRecord!
-    weak var database : CKDatabase!
-    init(record : CKRecord, database: CKDatabase) {
-        self.record = record
-        self.database = database
-        self.nome = record.objectForKey("nome") as! String
-        self.detalhes = record.objectForKey("detalhes") as? String
-    }
 }
