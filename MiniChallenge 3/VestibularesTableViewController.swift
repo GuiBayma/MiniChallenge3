@@ -33,7 +33,7 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CloudKitHelper.sharedInstance().vestibulares.count
+        return model.vestibulares.count
     }
 
     

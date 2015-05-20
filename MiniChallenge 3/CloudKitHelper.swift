@@ -75,7 +75,7 @@ protocol CloudKitHelperDelegate {
                     println("error loading: \(error)")
                 }
             } else {
-                self.faculdades.removeAll(keepCapacity: true)
+                self.vestibulares.removeAll(keepCapacity: true)
                 for record in results {
                     let vestibular = VestibularCloud(record: record as! CKRecord, database:self.publicDB)
                     self.vestibulares.append(vestibular)
