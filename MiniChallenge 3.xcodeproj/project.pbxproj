@@ -13,6 +13,7 @@
 		172598021B0CA82D0082550F /* FaculdadeCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598011B0CA82D0082550F /* FaculdadeCloud.swift */; };
 		172598041B0CAE5D0082550F /* VestibularCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598031B0CAE5D0082550F /* VestibularCloud.swift */; };
 		172598061B0CAE6C0082550F /* CursoCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598051B0CAE6C0082550F /* CursoCloud.swift */; };
+		172598081B0CCEBF0082550F /* VestibularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598071B0CCEBF0082550F /* VestibularTableViewCell.swift */; };
 		172897E91B04D46E00709B88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172897E81B04D46E00709B88 /* AppDelegate.swift */; };
 		172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 172897EA1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld */; };
 		172897F11B04D46E00709B88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172897EF1B04D46E00709B88 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		172598011B0CA82D0082550F /* FaculdadeCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaculdadeCloud.swift; sourceTree = "<group>"; };
 		172598031B0CAE5D0082550F /* VestibularCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularCloud.swift; sourceTree = "<group>"; };
 		172598051B0CAE6C0082550F /* CursoCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursoCloud.swift; sourceTree = "<group>"; };
+		172598071B0CCEBF0082550F /* VestibularTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularTableViewCell.swift; sourceTree = "<group>"; };
 		172897E31B04D46E00709B88 /* MiniChallenge 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MiniChallenge 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172897E71B04D46E00709B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172897E81B04D46E00709B88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				1703C9891B06630300180DA4 /* ResultadoBuscaTableViewController.swift */,
 				A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */,
 				A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */,
+				172598071B0CCEBF0082550F /* VestibularTableViewCell.swift */,
 				17CD83291B0A2789003A7956 /* AjustesViewController.swift */,
 				172897EF1B04D46E00709B88 /* Main.storyboard */,
 				172897E61B04D46E00709B88 /* Supporting Files */,
@@ -291,6 +294,7 @@
 				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,
 				172897E91B04D46E00709B88 /* AppDelegate.swift in Sources */,
 				172598061B0CAE6C0082550F /* CursoCloud.swift in Sources */,
+				172598081B0CCEBF0082550F /* VestibularTableViewCell.swift in Sources */,
 				3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */,
 				1703C9881B0660CD00180DA4 /* BuscaViewController.swift in Sources */,
 				A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */,

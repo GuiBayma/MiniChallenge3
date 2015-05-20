@@ -33,7 +33,7 @@ class FaculdadeCloud : NSObject {
         self.estado = record.objectForKey("estado") as! String
         self.cidade = record.objectForKey("cidade") as! String
         self.siteWeb = record.objectForKey("siteWeb") as! String
-        self.aceitaEnem = record.objectForKey("aceitaEnem") as! String
+        self.aceitaEnem = record.objectForKey("aceitaEnem") as! NSNumber
     }
     
     func fetchPhotos(completion:(assets: [CKRecord]!)->()) {
