@@ -16,10 +16,11 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
-        model.refreshVestibular()
+//        model.refreshVestibular() tem q sair pra n faze sempre direto
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
         
         refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +61,8 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
     
     func errorUpdating(error: NSError) {
         let message = error.localizedDescription
-        let alert = UIAlertView(title: "Error Loading Todos",
-            message: message, delegate: nil, cancelButtonTitle: "OK")
+        let alert = UIAlertView(title: "Oops, deu ruim!",
+            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
         alert.show()
     }
     
