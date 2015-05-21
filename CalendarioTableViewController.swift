@@ -16,7 +16,9 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
         super.viewDidLoad()
         
         model.delegate = self
-        model.refreshVestibular()
+//        model.refreshVestibular()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
@@ -60,8 +62,8 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     
     func errorUpdating(error: NSError) {
         let message = error.localizedDescription
-        let alert = UIAlertView(title: "Error Loading Todos",
-            message: message, delegate: nil, cancelButtonTitle: "OK")
+        let alert = UIAlertView(title: "Oops, deu ruim!",
+            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
         alert.show()
     }
 

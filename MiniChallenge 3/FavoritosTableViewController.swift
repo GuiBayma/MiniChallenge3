@@ -11,16 +11,16 @@ import UIKit
 class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegate {
     
     let model = CloudKitHelper.sharedInstance()
+    
+    
     var favoritos = [FaculdadeCloud]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
-        
-        model.delegate = self
-        model.refreshFaculdade()
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
+
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
     }
@@ -31,30 +31,22 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
     func reachabilityStatusChanged()
     {
         if reachabilityStatus == kNotReachable
-        {
-            //Alerta
-            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Neste primeiro acesso vc deve estar conectado a alguma rede Wi-fi.", preferredStyle: .Alert)
-            
-            let acao1: UIAlertAction = UIAlertAction (title: "OK", style: .Default)
-                {       action -> Void in println("ok")     }
-            alerta.addAction(acao1)
-            self.presentViewController(alerta, animated: true, completion: nil)
-        }
+        {       /*já tem um método q tem um alerta*/        }
         else if reachabilityStatus == kReachableWithWifi
-        {
-            
-        }
+        {       /*não precisa de um alerta pq já vai direto*/       }
         else if reachabilityStatus == kReachableWithWwan
         {
             //Alerta
-            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Vc está prestes a usar uma quantidade muito grande de dados. Deseja se conectar a uma rede Wi-fi? ", preferredStyle: .Alert)
+            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Vc está prestes a usar uma quantidade muito grande de dados. Deseja continuar mesmo assim? ", preferredStyle: .Alert)
             
             let acao1: UIAlertAction = UIAlertAction (title: "Não", style: .Default)
-                {       action -> Void in println("Apareceu!!! ")     }
+                {       action -> Void in  /* nao vai acontecer nada, tem q colocar notificação */ }
             alerta.addAction(acao1)
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default)
-                {   action -> Void in println("Apareceu Denovo!!!!! ")      }
+                {       action -> Void in
+                    self.model.refreshVestibular()
+                    NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)}
             alerta.addAction(acao2)
             
             self.presentViewController(alerta, animated: true, completion: nil)
@@ -80,6 +72,7 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         
+        self.favoritos.removeAll(keepCapacity: true)
         var i = 0
         for favs in model.faculdades{
             if model.faculdades[i].favorito == 1{
@@ -155,8 +148,8 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
     
     func errorUpdating(error: NSError) {
         let message = error.localizedDescription
-        let alert = UIAlertView(title: "Error Loading Todos",
-            message: message, delegate: nil, cancelButtonTitle: "OK")
+        let alert = UIAlertView(title: "Oops, deu ruim!",
+            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
         alert.show()
     }
 
