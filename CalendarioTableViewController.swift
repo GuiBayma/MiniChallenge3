@@ -11,6 +11,7 @@ import UIKit
 class CalendarioTableViewController: UITableViewController, CloudKitHelperDelegate {
     
     let model = CloudKitHelper.sharedInstance()
+    let dataHelper = OrganizaDataVestibular()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,11 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return model.vestibulares.count
+        return dataHelper.numeroDeSecoes(model.vestibulares)
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dataHelper.numeroDeCelulasPorSection(section, vestibulares: model.vestibulares)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
