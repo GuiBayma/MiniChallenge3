@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1703C9881B0660CD00180DA4 /* BuscaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703C9871B0660CD00180DA4 /* BuscaViewController.swift */; };
-		1703C98A1B06630300180DA4 /* ResultadoBuscaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703C9891B06630300180DA4 /* ResultadoBuscaTableViewController.swift */; };
 		172597FE1B0CA6F90082550F /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172597FD1B0CA6F90082550F /* CloudKitHelper.swift */; };
 		172598021B0CA82D0082550F /* FaculdadeCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598011B0CA82D0082550F /* FaculdadeCloud.swift */; };
 		172598041B0CAE5D0082550F /* VestibularCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598031B0CAE5D0082550F /* VestibularCloud.swift */; };
@@ -20,6 +18,7 @@
 		172897F31B04D46E00709B88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172897F21B04D46E00709B88 /* Images.xcassets */; };
 		172897F61B04D46E00709B88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172897F41B04D46E00709B88 /* LaunchScreen.xib */; };
 		172898021B04D46E00709B88 /* MiniChallenge_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */; };
+		175F9F931B0DF8B7002AE98A /* CalendarioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F9F921B0DF8B7002AE98A /* CalendarioTableViewController.swift */; };
 		17CD83281B0A2152003A7956 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83271B0A2152003A7956 /* DetailViewController.swift */; };
 		17CD832A1B0A2789003A7956 /* AjustesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD83291B0A2789003A7956 /* AjustesViewController.swift */; };
 		3E2D645B1B0B5CF400704589 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2D645A1B0B5CF400704589 /* CloudKit.framework */; };
@@ -42,8 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1703C9871B0660CD00180DA4 /* BuscaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuscaViewController.swift; sourceTree = "<group>"; };
-		1703C9891B06630300180DA4 /* ResultadoBuscaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultadoBuscaTableViewController.swift; sourceTree = "<group>"; };
 		172597FD1B0CA6F90082550F /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		172598011B0CA82D0082550F /* FaculdadeCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaculdadeCloud.swift; sourceTree = "<group>"; };
 		172598031B0CAE5D0082550F /* VestibularCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularCloud.swift; sourceTree = "<group>"; };
@@ -59,6 +56,7 @@
 		172897FB1B04D46E00709B88 /* MiniChallenge 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MiniChallenge 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		172898001B04D46E00709B88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172898011B04D46E00709B88 /* MiniChallenge_3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge_3Tests.swift; sourceTree = "<group>"; };
+		175F9F921B0DF8B7002AE98A /* CalendarioTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarioTableViewController.swift; path = ../CalendarioTableViewController.swift; sourceTree = "<group>"; };
 		17CD83271B0A2152003A7956 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		17CD83291B0A2789003A7956 /* AjustesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AjustesViewController.swift; sourceTree = "<group>"; };
 		3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MiniChallenge 3.entitlements"; sourceTree = "<group>"; };
@@ -117,9 +115,8 @@
 				3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */,
 				3E2D64601B0B763200704589 /* CloudKit */,
 				3EB2B4451B06175D00A16012 /* Entities */,
-				1703C9871B0660CD00180DA4 /* BuscaViewController.swift */,
 				17CD83271B0A2152003A7956 /* DetailViewController.swift */,
-				1703C9891B06630300180DA4 /* ResultadoBuscaTableViewController.swift */,
+				175F9F921B0DF8B7002AE98A /* CalendarioTableViewController.swift */,
 				A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */,
 				A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */,
 				172598071B0CCEBF0082550F /* VestibularTableViewCell.swift */,
@@ -295,15 +292,14 @@
 				172597FE1B0CA6F90082550F /* CloudKitHelper.swift in Sources */,
 				172598041B0CAE5D0082550F /* VestibularCloud.swift in Sources */,
 				A16DFBFF1B0A08A300815885 /* VestibularesTableViewController.swift in Sources */,
-				1703C98A1B06630300180DA4 /* ResultadoBuscaTableViewController.swift in Sources */,
 				3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */,
 				172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */,
 				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,
 				172897E91B04D46E00709B88 /* AppDelegate.swift in Sources */,
+				175F9F931B0DF8B7002AE98A /* CalendarioTableViewController.swift in Sources */,
 				172598061B0CAE6C0082550F /* CursoCloud.swift in Sources */,
 				172598081B0CCEBF0082550F /* VestibularTableViewCell.swift in Sources */,
 				3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */,
-				1703C9881B0660CD00180DA4 /* BuscaViewController.swift in Sources */,
 				A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */,
 				A1E084931B0CD3DD00B554C8 /* Reachability.m in Sources */,
 			);

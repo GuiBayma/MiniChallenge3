@@ -65,7 +65,7 @@ protocol CloudKitHelperDelegate {
     
     func refreshVestibular() {
         let predicate = NSPredicate(value: true)
-        //let sort = NSSortDescriptor(key: "Name", ascending: false)
+        //let sort = NSSortDescriptor(key: "dataProvas", ascending: true)
         let query = CKQuery(recordType: "Vestibular", predicate: predicate)
         //query.sortDescriptors = [sort]
         publicDB.performQuery(query, inZoneWithID: nil) { results, error in

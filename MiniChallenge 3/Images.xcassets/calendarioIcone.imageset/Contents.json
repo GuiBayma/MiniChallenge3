@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "buscaIconeSelecionado.png"
+      "filename" : "calendarioIcone.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "buscaIconeSelecionado@2x.png"
+      "filename" : "calendarioIcone@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "buscaIconeSelecionado@3x.png"
+      "filename" : "calendarioIcone@3x.png"
     }
   ],
   "info" : {

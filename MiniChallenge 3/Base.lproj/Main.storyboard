@@ -5,67 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Busca-->
-        <scene sceneID="FrR-BC-OTy">
-            <objects>
-                <viewController id="TEM-f7-Zq5" customClass="BuscaViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gfs-pu-fPr"/>
-                        <viewControllerLayoutGuide type="bottom" id="g0T-gJ-ct1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bmL-fq-8KK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGq-UW-pDn">
-                                <rect key="frame" x="26" y="285" width="548" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Faculdade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz6-2a-hch">
-                                <rect key="frame" x="234" y="224" width="132" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tx-tk-ZBS">
-                                <rect key="frame" x="277" y="345" width="49" height="30"/>
-                                <state key="normal" title="Buscar">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buscar:" destination="TEM-f7-Zq5" eventType="touchUpInside" id="MBv-kG-OFN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6tx-tk-ZBS" firstAttribute="top" secondItem="KGq-UW-pDn" secondAttribute="bottom" constant="30" id="00Z-EY-xeu"/>
-                            <constraint firstItem="KGq-UW-pDn" firstAttribute="leading" secondItem="bmL-fq-8KK" secondAttribute="leadingMargin" constant="10" id="3ab-VQ-cRH"/>
-                            <constraint firstAttribute="centerY" secondItem="Bz6-2a-hch" secondAttribute="centerY" constant="65.5" id="ent-M3-Vtd"/>
-                            <constraint firstAttribute="centerX" secondItem="6tx-tk-ZBS" secondAttribute="centerX" constant="-1.5" id="lDd-4N-7Ih"/>
-                            <constraint firstItem="KGq-UW-pDn" firstAttribute="top" secondItem="Bz6-2a-hch" secondAttribute="bottom" constant="40" id="lUt-0m-51U"/>
-                            <constraint firstAttribute="centerX" secondItem="KGq-UW-pDn" secondAttribute="centerX" id="ste-BQ-3Pw"/>
-                            <constraint firstAttribute="centerY" secondItem="KGq-UW-pDn" secondAttribute="centerY" id="wmG-gk-geo"/>
-                            <constraint firstAttribute="centerX" secondItem="Bz6-2a-hch" secondAttribute="centerX" id="xQ8-yW-OwE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KGq-UW-pDn" secondAttribute="trailing" constant="10" id="xTN-xJ-cue"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ent-M3-Vtd"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" title="Busca" id="N7J-dC-SCM"/>
-                    <connections>
-                        <outlet property="textField" destination="KGq-UW-pDn" id="DHI-jh-B15"/>
-                        <segue destination="idx-l7-LYs" kind="show" identifier="resultadoBusca" id="cKp-TA-PCx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PfZ-pn-iaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1968" y="-207"/>
-        </scene>
         <!--Vestibulares-->
         <scene sceneID="hti-nn-BSW">
             <objects>
@@ -127,28 +66,31 @@
             </objects>
             <point key="canvasLocation" x="1968" y="567"/>
         </scene>
-        <!--Busca-->
+        <!--Calendário-->
         <scene sceneID="0Qe-Mj-10m">
             <objects>
-                <tableViewController id="idx-l7-LYs" customClass="ResultadoBuscaTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="idx-l7-LYs" customClass="CalendarioTableViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hAw-g6-3T9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rTJ-QI-dYQ" style="IBUITableViewCellStyleDefault" id="BbJ-zQ-w64">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaCalendario" textLabel="PBD-QN-pIO" style="IBUITableViewCellStyleDefault" id="BbJ-zQ-w64">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BbJ-zQ-w64" id="vFt-ZZ-xug">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rTJ-QI-dYQ">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBD-QN-pIO">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="vfC-yM-PUL" kind="show" id="PZp-5k-pC9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -156,22 +98,19 @@
                             <outlet property="delegate" destination="idx-l7-LYs" id="AKW-Pb-doE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Busca" id="OV4-tm-22S"/>
-                    <connections>
-                        <segue destination="vfC-yM-PUL" kind="show" id="cHL-kg-4Qx"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Calendário" id="OV4-tm-22S"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPd-uq-Td8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="-207"/>
+            <point key="canvasLocation" x="1968" y="-207"/>
         </scene>
-        <!--Busca-->
+        <!--Calendario-->
         <scene sceneID="fe3-NT-b2V">
             <objects>
                 <navigationController id="W05-ma-8pl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Busca" image="buscaIcone" id="Xrg-wO-ees">
+                    <tabBarItem key="tabBarItem" title="Calendario" image="calendarioIcone" id="Xrg-wO-ees">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="buscaIconeSelecionado"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="calendarioIconeSelecionado"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="634-Yn-RP5">
@@ -179,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="TEM-f7-Zq5" kind="relationship" relationship="rootViewController" id="wbb-KY-tLX"/>
+                        <segue destination="idx-l7-LYs" kind="relationship" relationship="rootViewController" id="nVN-nW-VPs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d75-De-55W" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,8 +275,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="fSi-Fb-6Gi" kind="relationship" relationship="viewControllers" id="wqo-vV-suO"/>
-                        <segue destination="W05-ma-8pl" kind="relationship" relationship="viewControllers" id="TSE-fv-UaW"/>
                         <segue destination="6lf-cr-wLI" kind="relationship" relationship="viewControllers" id="0mB-9Y-w3k"/>
+                        <segue destination="W05-ma-8pl" kind="relationship" relationship="viewControllers" id="TSE-fv-UaW"/>
                         <segue destination="aBJ-H3-zmK" kind="relationship" relationship="viewControllers" id="28A-e1-CX2"/>
                     </connections>
                 </tabBarController>
@@ -349,14 +288,14 @@
     <resources>
         <image name="ajusteIcone" width="32" height="32"/>
         <image name="ajusteIconeSelecionado" width="32" height="32"/>
-        <image name="buscaIcone" width="32" height="32"/>
-        <image name="buscaIconeSelecionado" width="32" height="32"/>
+        <image name="calendarioIcone" width="32" height="32"/>
+        <image name="calendarioIconeSelecionado" width="32" height="32"/>
         <image name="favoritosIcone" width="32" height="32"/>
         <image name="favoritosIconeSelecionado" width="32" height="32"/>
         <image name="vestibularesIcon" width="32" height="32"/>
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oQL-mC-8oH"/>
+        <segue reference="PZp-5k-pC9"/>
     </inferredMetricsTieBreakers>
 </document>
