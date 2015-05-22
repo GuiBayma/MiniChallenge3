@@ -13,7 +13,7 @@ class OrganizaDataVestibular {
 
     private var dias = [NSDate]()
     private var vestibulares = [VestibularCloud]()
-    private var diasEProvas = [NSDate : [String]]()
+    private var diasEProvas = [String : [String]]()
     
     func configurar(vest : [VestibularCloud]) {
         self.vestibulares = vest
@@ -35,14 +35,19 @@ class OrganizaDataVestibular {
     }
     
     private func geraDicionario() {
-        for vestibular in vestibulares {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
+        
+        for vestibular in self.vestibulares {
             for dia in vestibular.dataProvas {
-                self.diasEProvas[dia]? = []
+                let stringDia = dateFormatter.stringFromDate(dia)
+                self.diasEProvas[stringDia]? = []
             }
         }
-        for vestibular in vestibulares {
+        for vestibular in self.vestibulares {
             for dia in vestibular.dataProvas {
-                self.diasEProvas[dia]?.append(vestibular.nome)
+                let stringDia = dateFormatter.stringFromDate(dia)
+                self.diasEProvas[stringDia]?.append(vestibular.nome)
             }
         }
         
@@ -53,8 +58,11 @@ class OrganizaDataVestibular {
     }
     
     func getNumeroLinhasSecao( secao: Int) -> Int {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
         let dia = self.dias[secao]
-        return self.diasEProvas[dia]!.count
+        let stringDia = dateFormatter.stringFromDate(dia)
+        return self.diasEProvas[stringDia]!.count
     }
     
     func getDiaProva(secao : Int) -> NSDate {
@@ -62,7 +70,10 @@ class OrganizaDataVestibular {
     }
     
     func getNomesFaculdades(secao : Int, linha : Int) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM"
         let dia = self.dias[secao]
-        return self.diasEProvas[dia]![linha]
+        let stringDia = dateFormatter.stringFromDate(dia)
+        return self.diasEProvas[stringDia]![linha]
     }
 }
