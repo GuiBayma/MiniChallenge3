@@ -19,10 +19,10 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshFaculdade:", name: "CarregandoDados", object: self.model)
 
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+//        refreshControl = UIRefreshControl()
+//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
     }
     
     override func viewDidAppear(animated: Bool)
@@ -33,7 +33,9 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
         if reachabilityStatus == kNotReachable
         {       /*já tem um método q tem um alerta*/        }
         else if reachabilityStatus == kReachableWithWifi
-        {       /*não precisa de um alerta pq já vai direto*/       }
+        {       /*não precisa de um alerta pq já vai direto*/
+            NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)
+        }
         else if reachabilityStatus == kReachableWithWwan
         {
             //Alerta
@@ -45,7 +47,6 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default)
                 {       action -> Void in
-                    self.model.refreshVestibular()
                     NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)}
             alerta.addAction(acao2)
             
