@@ -13,12 +13,19 @@ class OrganizaDataVestibular {
 
     private var dias = [NSDate]()
     private var vestibulares = [VestibularCloud]()
-    private var diasEProvas = [String : [String]]()
+    private var diasEProvas = [NSDate : [String]]()
     
     func configurar(vest : [VestibularCloud]) {
         self.vestibulares = vest
         self.geraArrayDias()
         self.geraDicionario()
+    }
+    
+    func configTeste() {
+        let hoje = NSDate()
+        self.diasEProvas[hoje] = ["Mackenzie","USP"]
+        self.diasEProvas[NSDate(timeInterval: 86400, sinceDate: hoje)] = ["Faap","Unicamp"]
+        self.dias = [hoje,NSDate(timeInterval: 86400, sinceDate: hoje)]
     }
     
     private func geraArrayDias() {
@@ -35,19 +42,16 @@ class OrganizaDataVestibular {
     }
     
     private func geraDicionario() {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
-        
         for vestibular in self.vestibulares {
             for dia in vestibular.dataProvas {
-                let stringDia = dateFormatter.stringFromDate(dia)
-                self.diasEProvas[stringDia]? = []
+                self.diasEProvas[dia] = []
             }
         }
         for vestibular in self.vestibulares {
             for dia in vestibular.dataProvas {
-                let stringDia = dateFormatter.stringFromDate(dia)
-                self.diasEProvas[stringDia]?.append(vestibular.nome)
+                var arrayNomes = self.diasEProvas[dia]
+                arrayNomes!.append(vestibular.nome)
+                self.diasEProvas[dia] = arrayNomes
             }
         }
         
@@ -58,11 +62,8 @@ class OrganizaDataVestibular {
     }
     
     func getNumeroLinhasSecao( secao: Int) -> Int {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
         let dia = self.dias[secao]
-        let stringDia = dateFormatter.stringFromDate(dia)
-        return self.diasEProvas[stringDia]!.count
+        return self.diasEProvas[dia]!.count
     }
     
     func getDiaProva(secao : Int) -> NSDate {
@@ -70,10 +71,7 @@ class OrganizaDataVestibular {
     }
     
     func getNomesFaculdades(secao : Int, linha : Int) -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
         let dia = self.dias[secao]
-        let stringDia = dateFormatter.stringFromDate(dia)
-        return self.diasEProvas[stringDia]![linha]
+        return self.diasEProvas[dia]![linha]
     }
 }
