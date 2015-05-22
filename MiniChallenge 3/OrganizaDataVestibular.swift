@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 class OrganizaDataVestibular {
 
@@ -36,9 +37,15 @@ class OrganizaDataVestibular {
     private func geraDicionario() {
         for vestibular in vestibulares {
             for dia in vestibular.dataProvas {
-                self.diasEProvas[dia]!.append(vestibular.nome)
+                self.diasEProvas[dia]? = []
             }
         }
+        for vestibular in vestibulares {
+            for dia in vestibular.dataProvas {
+                self.diasEProvas[dia]?.append(vestibular.nome)
+            }
+        }
+        
     }
     
     func getNumeroSecoes() -> Int{
