@@ -19,12 +19,13 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
         model.delegate = self
         model.refreshVestibular()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
         
         self.organiza.configurar(model.vestibulares)
+      //  self.organiza.configTeste()
     }
 
     override func didReceiveMemoryWarning() {
