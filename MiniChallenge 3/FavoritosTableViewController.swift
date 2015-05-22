@@ -20,9 +20,9 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshFaculdade:", name: "CarregandoDados", object: self.model)
-
-//        refreshControl = UIRefreshControl()
-//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+model.refreshVestibular()
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
     }
     
     override func viewDidAppear(animated: Bool)

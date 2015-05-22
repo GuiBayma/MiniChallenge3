@@ -17,13 +17,13 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
         super.viewDidLoad()
         
         model.delegate = self
-//        model.refreshVestibular()
+        model.refreshVestibular()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshVestibular:", name: "CarregandoDados", object: self.model)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshVestibular:", name: "CarregandoDados", object: self.model)
 
         
-//        refreshControl = UIRefreshControl()
-//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
         
         self.organiza.configurar(model.vestibulares)
       //  self.organiza.configTeste()

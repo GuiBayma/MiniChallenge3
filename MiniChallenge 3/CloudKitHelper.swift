@@ -63,7 +63,7 @@ protocol CloudKitHelperDelegate {
         }
     }
     
-    func refreshVestibular(notification: NSNotification) {
+    func refreshVestibular() {
         let predicate = NSPredicate(value: true)
         //let sort = NSSortDescriptor(key: "dataProvas", ascending: true)
         let query = CKQuery(recordType: "Vestibular", predicate: predicate)
