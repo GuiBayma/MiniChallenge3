@@ -10,16 +10,18 @@ import Foundation
 
 class OrganizaDataVestibular {
 
-    var dias : [NSDate]!
-    let vestibulares = [VestibularCloud]()
+    private var dias = [NSDate]()
+    private var vestibulares = [VestibularCloud]()
+    private var diasEProvas = [NSDate : [String]]()
     
-    init() {
-        self.dias = []
+    func configurar(vest : [VestibularCloud]) {
+        self.vestibulares = vest
+        self.geraArrayDias()
+        self.geraDicionario()
     }
     
-    func numeroDeSecoes(vestibulares: [VestibularCloud]) -> Int {
+    private func geraArrayDias() {
         var diaSet = Set(self.dias)
-        
         for vest in vestibulares {
             for dia in vest.dataProvas {
                 if !diaSet.contains(dia) {
@@ -27,24 +29,33 @@ class OrganizaDataVestibular {
                 }
             }
         }
-        
-        return diaSet.count
+        self.dias = Array(diaSet)
+        self.dias.sort() { $0.compare( $1 ) == NSComparisonResult.OrderedAscending }
     }
     
-    func numeroDeCelulasPorSection(section: Int, vestibulares: [VestibularCloud]) -> Int {
-        var arrayDias = Array(self.dias)
-        arrayDias.sort { $0.compare( $1 ) == NSComparisonResult.OrderedAscending }
-        var numeroProvas = 0
-        
+    private func geraDicionario() {
         for vestibular in vestibulares {
-            for data in vestibular.dataProvas {
-                if arrayDias[section].compare(data) == NSComparisonResult.OrderedSame {
-                    numeroProvas++
-                }
+            for dia in vestibular.dataProvas {
+                self.diasEProvas[dia]!.append(vestibular.nome)
             }
         }
-        
-        return numeroProvas
     }
     
+    func getNumeroSecoes() -> Int{
+        return self.dias.count
+    }
+    
+    func getNumeroLinhasSecao( secao: Int) -> Int {
+        let dia = self.dias[secao]
+        return self.diasEProvas[dia]!.count
+    }
+    
+    func getDiaProva(secao : Int) -> NSDate {
+        return self.dias[secao]
+    }
+    
+    func getNomesFaculdades(secao : Int, linha : Int) -> String {
+        let dia = self.dias[secao]
+        return self.diasEProvas[dia]![linha]
+    }
 }

@@ -11,18 +11,20 @@ import UIKit
 class CalendarioTableViewController: UITableViewController, CloudKitHelperDelegate {
     
     let model = CloudKitHelper.sharedInstance()
-    let dataHelper = OrganizaDataVestibular()
+    let organiza = OrganizaDataVestibular()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         model.delegate = self
-//        model.refreshVestibular()
+        model.refreshVestibular()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "self.model.refreshVestibular()", name: "CarregandoDados", object: nil)
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+        
+        self.organiza.configurar(model.vestibulares)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,24 +34,24 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return dataHelper.numeroDeSecoes(model.vestibulares)
+        return organiza.getNumeroSecoes()
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataHelper.numeroDeCelulasPorSection(section, vestibulares: model.vestibulares)
+        return organiza.getNumeroLinhasSecao(section)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM"
-        let diaProva = dateFormatter.stringFromDate(model.vestibulares[section].dataProvas[0])
+        let diaProva = dateFormatter.stringFromDate(organiza.getDiaProva(section))
         return diaProva
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaCalendario", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = model.vestibulares[indexPath.section].nome
+        cell.textLabel?.text = organiza.getNomesFaculdades(indexPath.section, linha: indexPath.row)
 
         return cell
     }
