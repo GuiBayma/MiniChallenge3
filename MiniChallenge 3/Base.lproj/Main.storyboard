@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Aj4-7i-2xE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0rm-L8-36Z">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,6 +13,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="CP5-cS-n6c">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.89277541039999997" green="0.89277541039999997" blue="0.89277541039999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="TuO-WX-bxV" id="QBx-xA-1sD"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaVestibulares" rowHeight="150" id="R32-9q-386" customClass="VestibularTableViewCell" customModule="MiniChallenge_3" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -61,8 +70,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vestibulares" id="UDw-16-UMo"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="lyT-ob-IbM" id="f8z-nd-ZiB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f0r-zG-vV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="lyT-ob-IbM">
+                    <connections>
+                        <outlet property="delegate" destination="TuO-WX-bxV" id="8Du-Ij-J08"/>
+                        <outlet property="searchBar" destination="CP5-cS-n6c" id="eD1-Ad-NTW"/>
+                        <outlet property="searchContentsController" destination="TuO-WX-bxV" id="QYe-xy-jD1"/>
+                        <outlet property="searchResultsDataSource" destination="TuO-WX-bxV" id="wNN-wV-rt9"/>
+                        <outlet property="searchResultsDelegate" destination="TuO-WX-bxV" id="gKW-qJ-ZxA"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1968" y="567"/>
         </scene>
@@ -263,6 +284,39 @@
             </objects>
             <point key="canvasLocation" x="1148" y="567"/>
         </scene>
+        <!--Inicial View Controller-->
+        <scene sceneID="7f1-0j-5JH">
+            <objects>
+                <viewController id="0rm-L8-36Z" customClass="InicialViewController" customModule="MiniChallenge_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zw9-Fj-Mnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="FEe-LQ-Uuj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C6c-c6-pb8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MiniChallenge 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFA-ci-4ta">
+                                <rect key="frame" x="168" y="278" width="264.5" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="FFA-ci-4ta" secondAttribute="centerY" id="9Dw-Rc-wK9"/>
+                            <constraint firstAttribute="centerX" secondItem="FFA-ci-4ta" secondAttribute="centerX" id="RHg-UJ-SHd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Aj4-7i-2xE" kind="show" identifier="inicialSegue" id="TXi-7B-R0s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqS-q0-IDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-470" y="567"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yzn-UI-l0X">
             <objects>
@@ -296,6 +350,6 @@
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PZp-5k-pC9"/>
+        <segue reference="oQL-mC-8oH"/>
     </inferredMetricsTieBreakers>
 </document>

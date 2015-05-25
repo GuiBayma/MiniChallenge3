@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1709F82B1B1297430068AE61 /* InicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709F82A1B1297430068AE61 /* InicialViewController.swift */; };
 		172597FE1B0CA6F90082550F /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172597FD1B0CA6F90082550F /* CloudKitHelper.swift */; };
 		172598021B0CA82D0082550F /* FaculdadeCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598011B0CA82D0082550F /* FaculdadeCloud.swift */; };
 		172598041B0CAE5D0082550F /* VestibularCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172598031B0CAE5D0082550F /* VestibularCloud.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1709F82A1B1297430068AE61 /* InicialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InicialViewController.swift; sourceTree = "<group>"; };
 		172597FD1B0CA6F90082550F /* CloudKitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		172598011B0CA82D0082550F /* FaculdadeCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaculdadeCloud.swift; sourceTree = "<group>"; };
 		172598031B0CAE5D0082550F /* VestibularCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularCloud.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				3E2D64591B0B5CF300704589 /* MiniChallenge 3.entitlements */,
 				3E2D64601B0B763200704589 /* CloudKit */,
 				3EB2B4451B06175D00A16012 /* Entities */,
+				1709F82A1B1297430068AE61 /* InicialViewController.swift */,
 				17CD83271B0A2152003A7956 /* DetailViewController.swift */,
 				175F9F921B0DF8B7002AE98A /* CalendarioTableViewController.swift */,
 				175F9F961B0E1441002AE98A /* OrganizaDataVestibular.swift */,
@@ -305,6 +308,7 @@
 				172598081B0CCEBF0082550F /* VestibularTableViewCell.swift in Sources */,
 				3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */,
 				A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */,
+				1709F82B1B1297430068AE61 /* InicialViewController.swift in Sources */,
 				A1E084931B0CD3DD00B554C8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
