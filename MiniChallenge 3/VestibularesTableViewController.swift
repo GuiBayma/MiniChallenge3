@@ -99,7 +99,9 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         self.resultadoBuscaController.active = false
-        let destino = segue.destinationViewController as? DetailViewController
+        if let destino = segue.destinationViewController as? DetailViewController {
+            destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]
+        }
     }
     
     // MARK: - Busca

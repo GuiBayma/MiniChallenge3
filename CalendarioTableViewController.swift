@@ -39,7 +39,7 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         let diaProva = dateFormatter.stringFromDate(organiza.getDiaProva(section))
         return diaProva
     }
