@@ -45,7 +45,7 @@ class InicialViewController: UIViewController {
             alerta.addAction(acao1)
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default){       action -> Void in
-                
+                NSNotificationCenter.defaultCenter().postNotificationName("DownloadRedeMovel", object: nil)
             }
             alerta.addAction(acao2)
             
