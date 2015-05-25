@@ -15,8 +15,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nomeLabel: UILabel!
     @IBOutlet weak var inscInicioLabel: UILabel!
     @IBOutlet weak var inscFimLabel: UILabel!
-    @IBOutlet weak var dataProvaLabel: UILabel!
-    @IBOutlet weak var detalhesLabel: UILabel!
+    @IBOutlet weak var dataProvaLabel: UITextView!
+    @IBOutlet weak var detalhesLabel: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
