@@ -10,26 +10,31 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    var vestibular : VestibularCloud!
+    
+    @IBOutlet weak var nomeLabel: UILabel!
+    @IBOutlet weak var inscInicioLabel: UILabel!
+    @IBOutlet weak var inscFimLabel: UILabel!
+    @IBOutlet weak var dataProvaLabel: UILabel!
+    @IBOutlet weak var detalhesLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = vestibular.nome
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        nomeLabel.text = vestibular.nome
+        inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
+        inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
+        dataProvaLabel.text = "Data das provas: \(vestibular.dataProvas)"
+        detalhesLabel.text = vestibular.detalhes
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

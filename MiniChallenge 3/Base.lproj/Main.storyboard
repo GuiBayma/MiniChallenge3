@@ -147,8 +147,59 @@
                     <view key="view" contentMode="scaleToFill" id="hZ8-Ok-hw5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-i8-6t5">
+                                <rect key="frame" x="277" y="94" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataInicioInsc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-x0-GmX">
+                                <rect key="frame" x="246" y="179" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataFimInsc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuS-Ou-9vP">
+                                <rect key="frame" x="252" y="257" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataProvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahs-Sh-PWr">
+                                <rect key="frame" x="256" y="349" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detalhes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDs-Sn-Lpw">
+                                <rect key="frame" x="267" y="430" width="66" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nDs-Sn-Lpw" firstAttribute="top" secondItem="Ahs-Sh-PWr" secondAttribute="bottom" constant="60" id="G5L-Dj-MhA"/>
+                            <constraint firstAttribute="centerX" secondItem="3BJ-x0-GmX" secondAttribute="centerX" id="JbG-wd-hY3"/>
+                            <constraint firstAttribute="centerX" secondItem="nDs-Sn-Lpw" secondAttribute="centerX" id="KwJ-0G-8hh"/>
+                            <constraint firstItem="4ba-i8-6t5" firstAttribute="top" secondItem="YOS-Hb-GDe" secondAttribute="bottom" constant="30" id="LZU-w2-boy"/>
+                            <constraint firstAttribute="centerX" secondItem="Ahs-Sh-PWr" secondAttribute="centerX" id="YiA-6D-xhE"/>
+                            <constraint firstItem="3BJ-x0-GmX" firstAttribute="top" secondItem="4ba-i8-6t5" secondAttribute="bottom" constant="64" id="b0m-Dn-d08"/>
+                            <constraint firstAttribute="centerX" secondItem="4ba-i8-6t5" secondAttribute="centerX" id="iki-Xi-GqE"/>
+                            <constraint firstItem="Ahs-Sh-PWr" firstAttribute="top" secondItem="VuS-Ou-9vP" secondAttribute="bottom" constant="72" id="qEI-Wn-QCS"/>
+                            <constraint firstItem="VuS-Ou-9vP" firstAttribute="top" secondItem="3BJ-x0-GmX" secondAttribute="bottom" constant="58" id="t3U-ow-hYF"/>
+                            <constraint firstAttribute="centerX" secondItem="VuS-Ou-9vP" secondAttribute="centerX" id="tIO-nE-FBg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dataProvaLabel" destination="Ahs-Sh-PWr" id="8Or-D5-8kj"/>
+                        <outlet property="detalhesLabel" destination="nDs-Sn-Lpw" id="Dve-jD-NK7"/>
+                        <outlet property="inscFimLabel" destination="VuS-Ou-9vP" id="Bea-eR-Xfh"/>
+                        <outlet property="inscInicioLabel" destination="3BJ-x0-GmX" id="qN8-VK-pqo"/>
+                        <outlet property="nomeLabel" destination="4ba-i8-6t5" id="A39-eL-mEp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32w-dp-kV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
