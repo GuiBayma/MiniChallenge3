@@ -9,15 +9,31 @@
 import UIKit
 
 
-class VestibularesTableViewController: UITableViewController, CloudKitHelperDelegate{
+class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating, CloudKitHelperDelegate{
     
     let model = CloudKitHelper.sharedInstance()
+    var resultadoBusca = [VestibularCloud]()
+    var resultadoBuscaController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
 //        model.refreshVestibular() tem q sair pra n faze sempre direto
+       
+//        refreshControl = UIRefreshControl()
+//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
         
+        self.resultadoBuscaController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = true
+            controller.searchBar.sizeToFit()
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,20 +47,36 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.vestibulares.count
+        if (self.resultadoBuscaController.active) {
+            return self.resultadoBusca.count
+        }
+        else {
+            return model.vestibulares.count
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaVestibulares", forIndexPath: indexPath) as! VestibularTableViewCell
 
-        cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
-        var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
-        cell.inscricaoLabel.text = inscString
-        var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
-        cell.provaLabel.text = provaString
+        if self.resultadoBuscaController.active {
+            cell.nomeLabel.text = resultadoBusca[indexPath.row].nome
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            var inscString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataFimInsc)
+            cell.inscricaoLabel.text = inscString
+            var provaString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataProvas[0])
+            cell.provaLabel.text = provaString
+        }
+        else {
+            cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
+            cell.inscricaoLabel.text = inscString
+            var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
+            cell.provaLabel.text = provaString
+        }
 
         return cell
     }
@@ -69,5 +101,29 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
         let destino = segue.destinationViewController as? DetailViewController
     }
     
+    // MARK: - Busca
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        self.resultadoBusca.removeAll(keepCapacity: false)
+        var arrayNomes: NSMutableArray = []
+        var arrayDetalhes: NSMutableArray = []
+        
+        for vestibular in model.vestibulares {
+            arrayNomes.addObject(vestibular.nome)
+        }
+        
+        let predicado = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
+        let array = (arrayNomes as NSArray).filteredArrayUsingPredicate(predicado)
+        
+        for vest in model.vestibulares {
+            for nome in array {
+                if vest.nome == nome as! String {
+                    self.resultadoBusca.append(vest)
+                }
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
 
 }
