@@ -149,31 +149,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-i8-6t5">
-                                <rect key="frame" x="277" y="94" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="273" y="94" width="55" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataInicioInsc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-x0-GmX">
-                                <rect key="frame" x="246" y="179" width="109" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DataInicioInsc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-x0-GmX">
+                                <rect key="frame" x="247" y="168" width="109" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataFimInsc" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuS-Ou-9vP">
-                                <rect key="frame" x="252" y="257" width="96" height="21"/>
+                                <rect key="frame" x="252" y="218" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataProvas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahs-Sh-PWr">
-                                <rect key="frame" x="256" y="349" width="89" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DataProvas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahs-Sh-PWr">
+                                <rect key="frame" x="16" y="309" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detalhes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDs-Sn-Lpw">
-                                <rect key="frame" x="267" y="430" width="66" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detalhes" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDs-Sn-Lpw">
+                                <rect key="frame" x="16" y="390" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -181,15 +181,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ahs-Sh-PWr" secondAttribute="trailing" id="Eim-Ar-bgd"/>
                             <constraint firstItem="nDs-Sn-Lpw" firstAttribute="top" secondItem="Ahs-Sh-PWr" secondAttribute="bottom" constant="60" id="G5L-Dj-MhA"/>
                             <constraint firstAttribute="centerX" secondItem="3BJ-x0-GmX" secondAttribute="centerX" id="JbG-wd-hY3"/>
                             <constraint firstAttribute="centerX" secondItem="nDs-Sn-Lpw" secondAttribute="centerX" id="KwJ-0G-8hh"/>
                             <constraint firstItem="4ba-i8-6t5" firstAttribute="top" secondItem="YOS-Hb-GDe" secondAttribute="bottom" constant="30" id="LZU-w2-boy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nDs-Sn-Lpw" secondAttribute="trailing" id="Ofq-ky-cWd"/>
+                            <constraint firstItem="Ahs-Sh-PWr" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" id="V2a-Wx-Rkc"/>
+                            <constraint firstItem="nDs-Sn-Lpw" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" id="Wso-Qv-5Or"/>
                             <constraint firstAttribute="centerX" secondItem="Ahs-Sh-PWr" secondAttribute="centerX" id="YiA-6D-xhE"/>
-                            <constraint firstItem="3BJ-x0-GmX" firstAttribute="top" secondItem="4ba-i8-6t5" secondAttribute="bottom" constant="64" id="b0m-Dn-d08"/>
+                            <constraint firstItem="3BJ-x0-GmX" firstAttribute="top" secondItem="4ba-i8-6t5" secondAttribute="bottom" constant="50" id="b0m-Dn-d08"/>
                             <constraint firstAttribute="centerX" secondItem="4ba-i8-6t5" secondAttribute="centerX" id="iki-Xi-GqE"/>
-                            <constraint firstItem="Ahs-Sh-PWr" firstAttribute="top" secondItem="VuS-Ou-9vP" secondAttribute="bottom" constant="72" id="qEI-Wn-QCS"/>
-                            <constraint firstItem="VuS-Ou-9vP" firstAttribute="top" secondItem="3BJ-x0-GmX" secondAttribute="bottom" constant="58" id="t3U-ow-hYF"/>
+                            <constraint firstItem="Ahs-Sh-PWr" firstAttribute="top" secondItem="VuS-Ou-9vP" secondAttribute="bottom" constant="70" id="qEI-Wn-QCS"/>
+                            <constraint firstItem="VuS-Ou-9vP" firstAttribute="top" secondItem="3BJ-x0-GmX" secondAttribute="bottom" constant="30" id="t3U-ow-hYF"/>
                             <constraint firstAttribute="centerX" secondItem="VuS-Ou-9vP" secondAttribute="centerX" id="tIO-nE-FBg"/>
                         </constraints>
                     </view>

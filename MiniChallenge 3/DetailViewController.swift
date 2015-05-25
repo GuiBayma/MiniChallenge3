@@ -32,9 +32,22 @@ class DetailViewController: UIViewController {
         nomeLabel.text = vestibular.nome
         inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
-        dataProvaLabel.text = "Data das provas: \(vestibular.dataProvas)"
+        
+        var datas = "Data das provas:\n"
+        for data in vestibular.dataProvas {
+            datas += "\(dateFormatter.stringFromDate(data)) \n"
+        }
+        dataProvaLabel.text = datas
+        
         detalhesLabel.text = vestibular.detalhes
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        nomeLabel.text = ""
+        inscInicioLabel.text = ""
+        inscFimLabel.text = ""
+        dataProvaLabel.text = ""
+        detalhesLabel.text = ""
+    }
 
 }
