@@ -8,14 +8,19 @@
 
 import UIKit
 
-class InicialViewController: UIViewController {
+class InicialViewController: UIViewController, CloudKitHelperDelegate {
 
+    let model = CloudKitHelper.sharedInstance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
+        model.refreshFaculdade()
+        model.refreshVestibular()
+        model.refreshCurso()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,5 +60,17 @@ class InicialViewController: UIViewController {
     
     deinit{
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
+    }
+    
+    func modelUpdated() {
+//        refreshControl?.endRefreshing()
+//        tableView.reloadData()
+    }
+    
+    func errorUpdating(error: NSError) {
+        let message = error.localizedDescription
+        let alert = UIAlertView(title: "Oops, deu ruim!",
+            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
     }
 }
