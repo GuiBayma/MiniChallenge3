@@ -71,7 +71,7 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destino = segue.destinationViewController as? DetailViewController {
-            destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]
+            destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]
         }
     }
 
