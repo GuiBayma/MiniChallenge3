@@ -27,7 +27,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
         self.resultadoBuscaController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
+            controller.dimsBackgroundDuringPresentation = true
             controller.searchBar.sizeToFit()
             
             self.tableView.tableHeaderView = controller.searchBar
@@ -47,7 +47,12 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.vestibulares.count
+        if (self.resultadoBuscaController.active) {
+            return self.resultadoBusca.count
+        }
+        else {
+            return model.vestibulares.count
+        }
     }
 
     
@@ -55,7 +60,13 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaVestibulares", forIndexPath: indexPath) as! VestibularTableViewCell
 
         if self.resultadoBuscaController.active {
-            
+            cell.nomeLabel.text = resultadoBusca[indexPath.row].nome
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            var inscString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataFimInsc)
+            cell.inscricaoLabel.text = inscString
+            var provaString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataProvas[0])
+            cell.provaLabel.text = provaString
         }
         else {
             cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
@@ -93,6 +104,24 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     // MARK: - Busca
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        self.resultadoBusca.removeAll(keepCapacity: false)
+        var arrayNomes: NSMutableArray = []
+        var arrayDetalhes: NSMutableArray = []
+        
+        for vestibular in model.vestibulares {
+            arrayNomes.addObject(vestibular.nome)
+        }
+        
+        let predicado = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
+        let array = (arrayNomes as NSArray).filteredArrayUsingPredicate(predicado)
+        
+        for vest in model.vestibulares {
+            for nome in array {
+                if vest.nome == nome as! String {
+                    self.resultadoBusca.append(vest)
+                }
+            }
+        }
         
         self.tableView.reloadData()
     }
