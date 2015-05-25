@@ -9,9 +9,11 @@
 import UIKit
 
 
-class VestibularesTableViewController: UITableViewController, CloudKitHelperDelegate{
+class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating, CloudKitHelperDelegate{
     
     let model = CloudKitHelper.sharedInstance()
+    var resultadoBusca = [VestibularCloud]()
+    var resultadoBuscaController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,17 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
         
 //        refreshControl = UIRefreshControl()
 //        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
+        
+        self.resultadoBuscaController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            self.tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,13 +54,18 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaVestibulares", forIndexPath: indexPath) as! VestibularTableViewCell
 
-        cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd/MM"
-        var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
-        cell.inscricaoLabel.text = inscString
-        var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
-        cell.provaLabel.text = provaString
+        if self.resultadoBuscaController.active {
+            
+        }
+        else {
+            cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd/MM"
+            var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
+            cell.inscricaoLabel.text = inscString
+            var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
+            cell.provaLabel.text = provaString
+        }
 
         return cell
     }
@@ -72,5 +90,11 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
         let destino = segue.destinationViewController as? DetailViewController
     }
     
+    // MARK: - Busca
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        self.tableView.reloadData()
+    }
 
 }
