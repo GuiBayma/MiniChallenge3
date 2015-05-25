@@ -18,16 +18,16 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     override func viewDidLoad() {
         super.viewDidLoad()
         model.delegate = self
-//        model.refreshVestibular() tem q sair pra n faze sempre direto
-       
+//        model.refreshVestibular()       
 //        refreshControl = UIRefreshControl()
 //        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
         
         self.resultadoBuscaController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = true
+            controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
+            controller.searchBar.placeholder = "Busca"
             
             self.tableView.tableHeaderView = controller.searchBar
             
@@ -98,6 +98,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     // MARK: - Segue
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.resultadoBuscaController.active = false
         let destino = segue.destinationViewController as? DetailViewController
     }
     

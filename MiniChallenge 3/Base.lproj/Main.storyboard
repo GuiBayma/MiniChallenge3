@@ -185,7 +185,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Favoritos" id="ZCG-lz-JTL"/>
                     <connections>
-                        <segue destination="vfC-yM-PUL" kind="show" id="E4n-Ee-FOu"/>
+                        <segue destination="vfC-yM-PUL" kind="show" identifier="favDetail" id="E4n-Ee-FOu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88F-gt-qln" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,6 +340,6 @@
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oQL-mC-8oH"/>
+        <segue reference="E4n-Ee-FOu"/>
     </inferredMetricsTieBreakers>
 </document>
