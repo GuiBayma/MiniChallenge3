@@ -18,11 +18,8 @@ class FavoritosTableViewController: UITableViewController, CloudKitHelperDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshFaculdade:", name: "CarregandoDados", object: self.model)
-model.refreshVestibular()
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
+        model.refreshVestibular()
     }
     
     override func viewDidAppear(animated: Bool)
@@ -47,7 +44,7 @@ model.refreshVestibular()
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default)
                 {       action -> Void in
-                    NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)}
+                    }
             alerta.addAction(acao2)
             
             self.presentViewController(alerta, animated: true, completion: nil)

@@ -21,13 +21,6 @@ class OrganizaDataVestibular {
         self.geraDicionario()
     }
     
-    func configTeste() {
-        let hoje = NSDate()
-        self.diasEProvas[hoje] = ["Mackenzie","USP"]
-        self.diasEProvas[NSDate(timeInterval: 86400, sinceDate: hoje)] = ["Faap","Unicamp"]
-        self.dias = [hoje,NSDate(timeInterval: 86400, sinceDate: hoje)]
-    }
-    
     private func geraArrayDias() {
         var diaSet = Set(self.dias)
         for vest in vestibulares {

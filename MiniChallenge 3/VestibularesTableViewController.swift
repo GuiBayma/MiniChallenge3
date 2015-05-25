@@ -17,10 +17,7 @@ class VestibularesTableViewController: UITableViewController, CloudKitHelperDele
         super.viewDidLoad()
         model.delegate = self
 //        model.refreshVestibular() tem q sair pra n faze sempre direto
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshVestibular:", name: "CarregandoDados", object: self.model)
         
-//        refreshControl = UIRefreshControl()
-//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
     }
 
     override func didReceiveMemoryWarning() {

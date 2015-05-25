@@ -38,7 +38,7 @@ protocol CloudKitHelperDelegate {
         
     }
     
-    func refreshFaculdade(notification: NSNotification) {
+    func refreshFaculdade() {
         let predicate = NSPredicate(value: true)
         //let sort = NSSortDescriptor(key: "Name", ascending: false)
         let query = CKQuery(recordType: "Faculdade", predicate: predicate)
@@ -88,7 +88,7 @@ protocol CloudKitHelperDelegate {
         }
     }
     
-    func refreshCurso(notification: NSNotification) {
+    func refreshCurso() {
         let predicate = NSPredicate(value: true)
         //let sort = NSSortDescriptor(key: "Name", ascending: false)
         let query = CKQuery(recordType: "Curso", predicate: predicate)
