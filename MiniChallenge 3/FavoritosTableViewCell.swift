@@ -1,24 +1,22 @@
 //
-//  VestibularTableViewCell.swift
+//  FavoritosTableViewCell.swift
 //  MiniChallenge 3
 //
-//  Created by Guilherme Bayma on 5/20/15.
+//  Created by Ana Elisa Pessoa Aguiar on 26/05/15.
 //  Copyright (c) 2015 Guilherme Bayma. All rights reserved.
 //
 
 import UIKit
 
-class VestibularTableViewCell: UITableViewCell {
-
+class FavoritosTableViewCell: UITableViewCell {
+    
     override func awakeFromNib()
     {       super.awakeFromNib()        }
-
+    
     override func setSelected(selected: Bool, animated: Bool)
     {       super.setSelected(selected, animated: animated)     }
     
-    @IBOutlet weak var nomeLabel: UILabel!
-    @IBOutlet weak var inscricaoLabel: UILabel!
-    @IBOutlet weak var provaLabel: UILabel!
-    @IBOutlet weak var imagem: UIImageView!
+    @IBOutlet weak var nome: UILabel!
+    @IBOutlet weak var imagemFaculdade: UIImageView!
     
 }

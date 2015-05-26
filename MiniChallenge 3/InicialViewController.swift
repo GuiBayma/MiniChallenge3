@@ -12,10 +12,9 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
 
     let model = CloudKitHelper.sharedInstance()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         model.refreshFaculdade()
@@ -23,17 +22,17 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
         model.refreshCurso()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    override func didReceiveMemoryWarning()
+    {        super.didReceiveMemoryWarning()        }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool)
+    {
         self.reachabilityStatusChanged() 
         performSegueWithIdentifier("inicialSegue", sender: self)
     }
     
-    func reachabilityStatusChanged(){
+    func reachabilityStatusChanged()
+    {
         if reachabilityStatus == kNotReachable{
             /*já tem um método q tem um alerta*/
         }else if reachabilityStatus == kReachableWithWifi{
@@ -58,16 +57,17 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
         }
     }
     
-    deinit{
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
-    }
+    deinit
+    {       NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)      }
     
-    func modelUpdated() {
+    func modelUpdated()
+    {
 //        refreshControl?.endRefreshing()
 //        tableView.reloadData()
     }
     
-    func errorUpdating(error: NSError) {
+    func errorUpdating(error: NSError)
+    {
         let message = error.localizedDescription
         let alert = UIAlertView(title: "Oops, deu ruim!",
             message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")

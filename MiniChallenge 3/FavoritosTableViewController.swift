@@ -14,12 +14,11 @@ class FavoritosTableViewController: UITableViewController {
     
     var favoritos = [FaculdadeCloud]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    override func viewDidLoad()
+    {        super.viewDidLoad()        }
     
-    override func viewDidAppear(animated: Bool){
+    override func viewDidAppear(animated: Bool)
+    {
     
     }
     
@@ -30,16 +29,11 @@ class FavoritosTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {       return 1        }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         self.favoritos.removeAll(keepCapacity: true)
         var i = 0
         for favs in model.faculdades{
@@ -53,11 +47,10 @@ class FavoritosTableViewController: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCellWithIdentifier("favorito", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-        
+    
         cell.textLabel?.text = favoritos[indexPath.row].nome
 
         return cell
@@ -102,19 +95,21 @@ class FavoritosTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destino = segue.destinationViewController as? DetailViewController {
-            destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]
-        }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let destino = segue.destinationViewController as? DetailViewController
+        {       destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]       }
     }
     
     
-    func modelUpdated() {
+    func modelUpdated()
+    {
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
-    func errorUpdating(error: NSError) {
+    func errorUpdating(error: NSError)
+    {
         let message = error.localizedDescription
         let alert = UIAlertView(title: "Oops, deu ruim!",
             message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")

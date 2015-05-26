@@ -13,38 +13,37 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     let model = CloudKitHelper.sharedInstance()
     let organiza = OrganizaDataVestibular()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         model.delegate = self
         model.refreshVestibular()
         
         self.organiza.configurar(model.vestibulares)
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    override func didReceiveMemoryWarning()
+    {       super.didReceiveMemoryWarning()     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return organiza.getNumeroSecoes()
-    }
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {       return organiza.getNumeroSecoes()       }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return organiza.getNumeroLinhasSecao(section)
-    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {       return organiza.getNumeroLinhasSecao(section)       }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let diaProva = dateFormatter.stringFromDate(organiza.getDiaProva(section))
         return diaProva
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaCalendario", forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel?.text = organiza.getNomesFaculdades(indexPath.section, linha: indexPath.row)
@@ -54,12 +53,14 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     
     //MARK: - CloudKitHelper Delegate
     
-    func modelUpdated() {
+    func modelUpdated()
+    {
         refreshControl?.endRefreshing()
         tableView.reloadData()
     }
     
-    func errorUpdating(error: NSError) {
+    func errorUpdating(error: NSError)
+    {
         let message = error.localizedDescription
         let alert = UIAlertView(title: "Oops, deu ruim!",
             message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
@@ -69,10 +70,10 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destino = segue.destinationViewController as? DetailViewController {
-            destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]
-        }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let destino = segue.destinationViewController as? DetailViewController
+        {       destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]       }
     }
 
 }
