@@ -35,6 +35,7 @@
 		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
 		A16DFBFD1B0A088C00815885 /* FavoritosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */; };
 		A16DFBFF1B0A08A300815885 /* VestibularesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */; };
+		A1A626331B14A0B900B2BD5F /* FavoritosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A626321B14A0B900B2BD5F /* FavoritosTableViewCell.swift */; };
 		A1E084931B0CD3DD00B554C8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E084921B0CD3DD00B554C8 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
 		A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritosTableViewController.swift; sourceTree = "<group>"; };
 		A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularesTableViewController.swift; sourceTree = "<group>"; };
+		A1A626321B14A0B900B2BD5F /* FavoritosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritosTableViewCell.swift; sourceTree = "<group>"; };
 		A1E084901B0CD3DC00B554C8 /* MiniChallenge 3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiniChallenge 3-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1E084911B0CD3DD00B554C8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A1E084921B0CD3DD00B554C8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				175F9F921B0DF8B7002AE98A /* CalendarioTableViewController.swift */,
 				175F9F961B0E1441002AE98A /* OrganizaDataVestibular.swift */,
 				A16DFBFC1B0A088C00815885 /* FavoritosTableViewController.swift */,
+				A1A626321B14A0B900B2BD5F /* FavoritosTableViewCell.swift */,
 				A16DFBFE1B0A08A300815885 /* VestibularesTableViewController.swift */,
 				172598071B0CCEBF0082550F /* VestibularTableViewCell.swift */,
 				17CD83291B0A2789003A7956 /* AjustesViewController.swift */,
@@ -330,6 +333,7 @@
 				3EA6C16C1B148FA4004E8EB1 /* CursoManager.swift in Sources */,
 				172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */,
 				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,
+				A1A626331B14A0B900B2BD5F /* FavoritosTableViewCell.swift in Sources */,
 				175F9F971B0E1441002AE98A /* OrganizaDataVestibular.swift in Sources */,
 				172897E91B04D46E00709B88 /* AppDelegate.swift in Sources */,
 				3EA6C1681B136D12004E8EB1 /* FaculdadeFactory.swift in Sources */,

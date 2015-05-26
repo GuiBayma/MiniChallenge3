@@ -19,12 +19,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detalhesLabel: UITextView!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    override func viewDidLoad()
+    {       super.viewDidLoad()     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool)
+    {
         self.navigationItem.title = vestibular.nome
         
         let dateFormatter = NSDateFormatter()
@@ -35,15 +34,16 @@ class DetailViewController: UIViewController {
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
         
         var datas = "Data das provas:\n"
-        for data in vestibular.dataProvas {
-            datas += "\(dateFormatter.stringFromDate(data)) \n"
-        }
+        for data in vestibular.dataProvas
+        {       datas += "\(dateFormatter.stringFromDate(data)) \n"     }
+        
         dataProvaLabel.text = datas
         
         detalhesLabel.text = vestibular.detalhes
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool)
+    {
         nomeLabel.text = ""
         inscInicioLabel.text = ""
         inscFimLabel.text = ""

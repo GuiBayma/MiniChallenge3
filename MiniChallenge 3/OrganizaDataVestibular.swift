@@ -15,13 +15,15 @@ class OrganizaDataVestibular {
     private var vestibulares = [VestibularCloud]()
     private var diasEProvas = [NSDate : [String]]()
     
-    func configurar(vest : [VestibularCloud]) {
+    func configurar(vest : [VestibularCloud])
+    {
         self.vestibulares = vest
         self.geraArrayDias()
         self.geraDicionario()
     }
     
-    private func geraArrayDias() {
+    private func geraArrayDias()
+    {
         var diaSet = Set(self.dias)
         for vest in vestibulares {
             for dia in vest.dataProvas {
@@ -34,7 +36,8 @@ class OrganizaDataVestibular {
         self.dias.sort() { $0.compare( $1 ) == NSComparisonResult.OrderedAscending }
     }
     
-    private func geraDicionario() {
+    private func geraDicionario()
+    {
         for vestibular in self.vestibulares {
             for dia in vestibular.dataProvas {
                 self.diasEProvas[dia] = []
@@ -50,20 +53,20 @@ class OrganizaDataVestibular {
         
     }
     
-    func getNumeroSecoes() -> Int{
-        return self.dias.count
-    }
+    func getNumeroSecoes() -> Int
+    {       return self.dias.count      }
     
-    func getNumeroLinhasSecao( secao: Int) -> Int {
+    func getNumeroLinhasSecao( secao: Int) -> Int
+    {
         let dia = self.dias[secao]
         return self.diasEProvas[dia]!.count
     }
     
-    func getDiaProva(secao : Int) -> NSDate {
-        return self.dias[secao]
-    }
+    func getDiaProva(secao : Int) -> NSDate
+    {       return self.dias[secao]     }
     
-    func getNomesFaculdades(secao : Int, linha : Int) -> String {
+    func getNomesFaculdades(secao : Int, linha : Int) -> String
+    {
         let dia = self.dias[secao]
         return self.diasEProvas[dia]![linha]
     }
