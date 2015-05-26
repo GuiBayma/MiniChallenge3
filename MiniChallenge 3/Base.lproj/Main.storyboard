@@ -166,7 +166,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="datas" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V4k-8V-Khj">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="datas" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V4k-8V-Khj">
                                 <rect key="frame" x="66" y="277" width="468" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -175,7 +175,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="detalhes" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fCF-be-lCO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="detalhes" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fCF-be-lCO">
                                 <rect key="frame" x="66" y="423" width="468" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -409,6 +409,6 @@
         <image name="vestibularesIconSelecionado" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E4n-Ee-FOu"/>
+        <segue reference="oQL-mC-8oH"/>
     </inferredMetricsTieBreakers>
 </document>
