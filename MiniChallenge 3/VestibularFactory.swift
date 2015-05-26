@@ -1,5 +1,5 @@
 //
-//  FaculdadeFactory.swift
+//  VestibularFactory.swift
 //  MiniChallenge 3
 //
 //  Created by Rafael Souza Belchior da Silva on 25/05/15.
@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class FaculdadeFactory: NSObject {
+class VestibularFactory: NSObject {
     
-    static func createFaculdade(nomeFaculdade: String, username: String) {
+    static func createVestibular(nomeFaculdade: String, username: String) {
         let contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let entidade = NSEntityDescription.entityForName("Faculdade", inManagedObjectContext: contexto!)
-        let faculdade = NSManagedObject(entity: entidade!, insertIntoManagedObjectContext: contexto) as! Faculdade
+        let entidade = NSEntityDescription.entityForName("Vestibular", inManagedObjectContext: contexto!)
+        let faculdade = NSManagedObject(entity: entidade!, insertIntoManagedObjectContext: contexto) as! Vestibular
         
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
