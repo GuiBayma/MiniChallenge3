@@ -6,4 +6,17 @@
 //  Copyright (c) 2015 Guilherme Bayma. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public class CursoManager {
+    static let sharedInstance:CursoManager = CursoManager()
+    //    let request = RequestAuthorization()
+    //    var mackmobileProjects = [NSDictionary]()
+    var notification = NSNotificationCenter.defaultCenter()
+    //    var repository = RepositoriesManager.sharedInstance
+    
+    private init(){}
+    
+    //conexão com os dados
+    
+}

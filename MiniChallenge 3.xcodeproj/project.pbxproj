@@ -27,6 +27,9 @@
 		3EA6C1641B136B23004E8EB1 /* VestibularManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C1631B136B23004E8EB1 /* VestibularManager.swift */; };
 		3EA6C1661B136C5B004E8EB1 /* FaculdadeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C1651B136C5B004E8EB1 /* FaculdadeManager.swift */; };
 		3EA6C1681B136D12004E8EB1 /* FaculdadeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C1671B136D12004E8EB1 /* FaculdadeFactory.swift */; };
+		3EA6C16A1B136FCB004E8EB1 /* VestibularFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C1691B136FCB004E8EB1 /* VestibularFactory.swift */; };
+		3EA6C16C1B148FA4004E8EB1 /* CursoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C16B1B148FA4004E8EB1 /* CursoManager.swift */; };
+		3EA6C16E1B148FB4004E8EB1 /* CursoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6C16D1B148FB4004E8EB1 /* CursoFactory.swift */; };
 		3EB2B44D1B061A1000A16012 /* Curso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44C1B061A1000A16012 /* Curso.swift */; };
 		3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B44E1B061A1000A16012 /* Faculdade.swift */; };
 		3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB2B4501B061A1000A16012 /* Vestibular.swift */; };
@@ -71,6 +74,9 @@
 		3EA6C1631B136B23004E8EB1 /* VestibularManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularManager.swift; sourceTree = "<group>"; };
 		3EA6C1651B136C5B004E8EB1 /* FaculdadeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaculdadeManager.swift; sourceTree = "<group>"; };
 		3EA6C1671B136D12004E8EB1 /* FaculdadeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaculdadeFactory.swift; sourceTree = "<group>"; };
+		3EA6C1691B136FCB004E8EB1 /* VestibularFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VestibularFactory.swift; sourceTree = "<group>"; };
+		3EA6C16B1B148FA4004E8EB1 /* CursoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursoManager.swift; sourceTree = "<group>"; };
+		3EA6C16D1B148FB4004E8EB1 /* CursoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursoFactory.swift; sourceTree = "<group>"; };
 		3EB2B44C1B061A1000A16012 /* Curso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Curso.swift; path = ../Curso.swift; sourceTree = "<group>"; };
 		3EB2B44E1B061A1000A16012 /* Faculdade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faculdade.swift; path = ../Faculdade.swift; sourceTree = "<group>"; };
 		3EB2B4501B061A1000A16012 /* Vestibular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vestibular.swift; path = ../Vestibular.swift; sourceTree = "<group>"; };
@@ -187,8 +193,11 @@
 			isa = PBXGroup;
 			children = (
 				3EA6C1631B136B23004E8EB1 /* VestibularManager.swift */,
+				3EA6C1691B136FCB004E8EB1 /* VestibularFactory.swift */,
 				3EA6C1651B136C5B004E8EB1 /* FaculdadeManager.swift */,
 				3EA6C1671B136D12004E8EB1 /* FaculdadeFactory.swift */,
+				3EA6C16B1B148FA4004E8EB1 /* CursoManager.swift */,
+				3EA6C16D1B148FB4004E8EB1 /* CursoFactory.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -310,12 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				17CD832A1B0A2789003A7956 /* AjustesViewController.swift in Sources */,
+				3EA6C16E1B148FB4004E8EB1 /* CursoFactory.swift in Sources */,
 				172598021B0CA82D0082550F /* FaculdadeCloud.swift in Sources */,
 				17CD83281B0A2152003A7956 /* DetailViewController.swift in Sources */,
+				3EA6C16A1B136FCB004E8EB1 /* VestibularFactory.swift in Sources */,
 				172597FE1B0CA6F90082550F /* CloudKitHelper.swift in Sources */,
 				172598041B0CAE5D0082550F /* VestibularCloud.swift in Sources */,
 				A16DFBFF1B0A08A300815885 /* VestibularesTableViewController.swift in Sources */,
 				3EB2B4511B061A1000A16012 /* Vestibular.swift in Sources */,
+				3EA6C16C1B148FA4004E8EB1 /* CursoManager.swift in Sources */,
 				172897EC1B04D46E00709B88 /* MiniChallenge_3.xcdatamodeld in Sources */,
 				3EB2B44F1B061A1000A16012 /* Faculdade.swift in Sources */,
 				175F9F971B0E1441002AE98A /* OrganizaDataVestibular.swift in Sources */,
