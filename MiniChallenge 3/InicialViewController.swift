@@ -16,7 +16,7 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        model.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
         model.refreshFaculdade()
         model.refreshVestibular()

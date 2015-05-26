@@ -26,7 +26,6 @@ class FaculdadeCloud : NSObject {
     init(record : CKRecord, database: CKDatabase) {
         self.record = record
         self.database = database
-        
         self.nome = record.objectForKey("nome") as! String
         self.tipoInstituicao = record.objectForKey("tipoInstituicao") as! NSNumber
         self.favorito = record.objectForKey("favorito") as! NSNumber

@@ -16,7 +16,7 @@ public class VestibularManager {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var c = appDelegate.managedObjectContext
         return c!
-        }()
+    }()
     
     private init(){}
     
@@ -51,14 +51,4 @@ public class VestibularManager {
         return [Vestibular]()
     }
     
-    func verifyData(projectName: String) -> Bool {
-        var vestibulares = self.findVestibular()
-        
-        for teste in vestibulares {
-//            if teste.name == projectName {
-//                return false
-//            }
-        }
-        return true
-    }
 }

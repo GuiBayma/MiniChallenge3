@@ -192,10 +192,10 @@
 		3EA6C1621B136AFC004E8EB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				3EA6C1631B136B23004E8EB1 /* VestibularManager.swift */,
-				3EA6C1691B136FCB004E8EB1 /* VestibularFactory.swift */,
 				3EA6C1651B136C5B004E8EB1 /* FaculdadeManager.swift */,
 				3EA6C1671B136D12004E8EB1 /* FaculdadeFactory.swift */,
+				3EA6C1631B136B23004E8EB1 /* VestibularManager.swift */,
+				3EA6C1691B136FCB004E8EB1 /* VestibularFactory.swift */,
 				3EA6C16B1B148FA4004E8EB1 /* CursoManager.swift */,
 				3EA6C16D1B148FB4004E8EB1 /* CursoFactory.swift */,
 			);

@@ -16,11 +16,13 @@ class FavoritosTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.reloadData()
+
     }
     
     override func viewDidAppear(animated: Bool){
-    
+        self.tableView.reloadData()
+
     }
     
     
@@ -44,7 +46,7 @@ class FavoritosTableViewController: UITableViewController {
         var i = 0
         for favs in model.faculdades{
             if model.faculdades[i].favorito == 1{
-                favoritos.append(favs)
+                self.favoritos.append(favs)
             }
             i = i+1
         }
