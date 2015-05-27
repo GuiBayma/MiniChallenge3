@@ -52,9 +52,9 @@ class FavoritosTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("favorito", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("celulaFavoritos", forIndexPath: indexPath) as! FavoritosTableViewCell
     
-        cell.textLabel?.text = favoritos[indexPath.row].nome
+        cell.nome.text = favoritos[indexPath.row].nome
 
         return cell
     }
