@@ -11,7 +11,7 @@ import CoreData
 
 class FaculdadeFactory: NSObject {
     
-    static func createFaculdade(nomeFaculdade: String, username: String) {
+    static func createFaculdade(nomeFaculdade: String, favorito: NSNumber) {
         let contexto = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         let entidade = NSEntityDescription.entityForName("Faculdade", inManagedObjectContext: contexto!)
         let faculdade = NSManagedObject(entity: entidade!, insertIntoManagedObjectContext: contexto) as! Faculdade

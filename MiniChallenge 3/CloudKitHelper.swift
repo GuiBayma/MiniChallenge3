@@ -54,6 +54,17 @@ protocol CloudKitHelperDelegate {
                 for record in results {
                     let faculdade = FaculdadeCloud(record: record as! CKRecord, database:self.publicDB)
                     self.faculdades.append(faculdade)
+                    
+                    
+                    //CORE DATA
+                    dispatch_async(dispatch_get_main_queue()){
+                        var faculdadeCD = FaculdadeManager.sharedInstance.newFaculdade()
+                        faculdadeCD.nome = faculdade.nome
+                        faculdadeCD.favorito = faculdade.favorito
+                        FaculdadeManager.sharedInstance.saveFaculdade()
+                    }
+                    
+                    
                 }
                 dispatch_async(dispatch_get_main_queue()) {
                     self.delegate?.modelUpdated()

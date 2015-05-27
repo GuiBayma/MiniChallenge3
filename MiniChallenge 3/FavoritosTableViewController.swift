@@ -11,8 +11,11 @@ import UIKit
 class FavoritosTableViewController: UITableViewController {
     
     let model = CloudKitHelper.sharedInstance()
+    lazy var modelCD:Array<Faculdade> = {
+        return FaculdadeManager.sharedInstance.findFaculdade()
+        }()
     
-    var favoritos = [FaculdadeCloud]()
+    var favoritos = [Faculdade]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +24,9 @@ class FavoritosTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool){
+        modelCD = FaculdadeManager.sharedInstance.findFaculdade()
         self.tableView.reloadData()
-
+        
     }
     
     
@@ -39,8 +43,8 @@ class FavoritosTableViewController: UITableViewController {
     {
         self.favoritos.removeAll(keepCapacity: true)
         var i = 0
-        for favs in model.faculdades{
-            if model.faculdades[i].favorito == 1{
+        for favs in modelCD{
+            if modelCD[i].favorito == 1{
                 self.favoritos.append(favs)
             }
             i = i+1
@@ -55,6 +59,7 @@ class FavoritosTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaFavoritos", forIndexPath: indexPath) as! FavoritosTableViewCell
     
         cell.nome.text = favoritos[indexPath.row].nome
+        
 
         return cell
     }
