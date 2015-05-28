@@ -74,15 +74,5 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
         self.model.refreshFaculdade()
         self.model.refreshVestibular()
         self.model.refreshCurso()
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            for faculdade in self.model.faculdades {
-                for vestibular in self.model.vestibulares {
-                    if faculdade.nome == vestibular.nome {
-                        faculdade.vestibular = vestibular
-                    }
-                }
-            }
-        }
     }
 }

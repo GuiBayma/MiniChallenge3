@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    let model = CloudKitHelper.sharedInstance()
+    var vestibular : VestibularCloud!
     var faculdade : FaculdadeCloud!
     
     @IBOutlet weak var nomeLabel: UILabel!
@@ -24,22 +26,28 @@ class DetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool)
     {
-        self.navigationItem.title = faculdade.nome
+        self.navigationItem.title = vestibular.nome
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        nomeLabel.text = faculdade.nome
-        inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(faculdade.vestibular!.dataInicioInsc))"
-        inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(faculdade.vestibular!.dataFimInsc))"
+        nomeLabel.text = vestibular.nome
+        inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
+        inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
         
         var datas = "Data das provas:\n"
-        for data in faculdade.vestibular!.dataProvas
+        for data in vestibular.dataProvas
         {       datas += "\(dateFormatter.stringFromDate(data)) \n"     }
         
         dataProvaLabel.text = datas
         
-        detalhesLabel.text = faculdade.vestibular!.detalhes
+        detalhesLabel.text = vestibular.detalhes
+        
+        for fac in model.faculdades {
+            if fac.nome == vestibular.nome {
+                faculdade = fac
+            }
+        }
         
         if faculdade.favorito == 1 {
             favoritoIcone.image = UIImage(named: "favoritosIconeSelecionado")

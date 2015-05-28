@@ -21,7 +21,7 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
         
         self.organiza.configurar(model.vestibulares)
         
-        if model.faculdades.count == 0 {
+        if model.vestibulares.count == 0 {
             let alert = UIAlertView(title: "Oops, deu ruim!",
                 message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
