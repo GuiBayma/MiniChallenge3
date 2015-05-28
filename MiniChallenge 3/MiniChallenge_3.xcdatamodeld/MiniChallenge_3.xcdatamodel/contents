@@ -16,11 +16,11 @@
         <relationship name="vestibular" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestibular" inverseName="faculdade" inverseEntity="Vestibular" syncable="YES"/>
     </entity>
     <entity name="Vestibular" representedClassName="Vestibular" syncable="YES">
-        <attribute name="dataChamada" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataChamada" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="dataFimInsc" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dataGabarito" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dataInicioInsc" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="dataProvas" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataProvas" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="detalhes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="faculdade" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculdade" inverseName="vestibular" inverseEntity="Faculdade" syncable="YES"/>
@@ -28,6 +28,6 @@
     <elements>
         <element name="Curso" positionX="151" positionY="-18" width="128" height="73"/>
         <element name="Faculdade" positionX="27" positionY="-234" width="128" height="178"/>
-        <element name="Vestibular" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Vestibular" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>
