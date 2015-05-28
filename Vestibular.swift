@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Vestibular)
 class Vestibular: NSManagedObject {
 
     @NSManaged var dataChamada: AnyObject?

@@ -20,6 +20,8 @@ class FaculdadeCloud : NSObject {
     var cidade : String!
     var siteWeb : String!
     var aceitaEnem : NSNumber!
+    var vestibular: VestibularCloud?
+    var cursos: [CursoCloud]?
     
     var assetCount = 0
     

@@ -18,9 +18,14 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
         super.viewDidLoad()
         
         model.delegate = self
-        model.refreshVestibular()
         
         self.organiza.configurar(model.vestibulares)
+        
+        if model.faculdades.count == 0 {
+            let alert = UIAlertView(title: "Oops, deu ruim!",
+                message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -53,18 +58,10 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     
     //MARK: - CloudKitHelper Delegate
     
-    func modelUpdated()
-    {
-        refreshControl?.endRefreshing()
-        tableView.reloadData()
+    func modelUpdated() {
     }
     
-    func errorUpdating(error: NSError)
-    {
-        let message = error.localizedDescription
-        let alert = UIAlertView(title: "Oops, deu ruim!",
-            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+    func errorUpdating(error: NSError) {
     }
 
     
@@ -72,8 +69,9 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if let destino = segue.destinationViewController as? DetailViewController
-        {       destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]       }
+        if let destino = segue.destinationViewController as? DetailViewController {
+            //destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]
+        }
     }
 
 }

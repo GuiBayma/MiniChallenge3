@@ -16,7 +16,6 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
     {
         super.viewDidLoad()
 
-
         // Do any additional setup after loading the view.
         model.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
@@ -35,11 +34,12 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
     {
         if reachabilityStatus == kNotReachable{
             /*já tem um método q tem um alerta*/
+            let alert = UIAlertView(title: "Oops, deu ruim!",
+                message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
         }else if reachabilityStatus == kReachableWithWifi{
             /*não precisa de um alerta pq já vai direto*/
-            model.refreshFaculdade()
-            model.refreshVestibular()
-            model.refreshCurso()
+            cloudSync()
             NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)
         }else if reachabilityStatus == kReachableWithWwan{
             //Alerta
@@ -52,9 +52,7 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
             alerta.addAction(acao1)
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default){       action -> Void in
-                self.model.refreshFaculdade()
-                self.model.refreshVestibular()
-                self.model.refreshCurso()
+                self.cloudSync()
                 NSNotificationCenter.defaultCenter().postNotificationName("DownloadRedeMovel", object: nil)
             }
             alerta.addAction(acao2)
@@ -69,11 +67,22 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
     func modelUpdated() {
     }
     
-    func errorUpdating(error: NSError)
-    {
-        let message = error.localizedDescription
-        let alert = UIAlertView(title: "Oops, deu ruim!",
-            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+    func errorUpdating(error: NSError) {
+    }
+    
+    func cloudSync() {
+        self.model.refreshFaculdade()
+        self.model.refreshVestibular()
+        self.model.refreshCurso()
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            for faculdade in self.model.faculdades {
+                for vestibular in self.model.vestibulares {
+                    if faculdade.nome == vestibular.nome {
+                        faculdade.vestibular = vestibular
+                    }
+                }
+            }
+        }
     }
 }

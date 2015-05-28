@@ -25,7 +25,6 @@ class FavoritosTableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool){
         modelCD = FaculdadeManager.sharedInstance.findFaculdade()
         self.tableView.reloadData()
-        
     }
     
     

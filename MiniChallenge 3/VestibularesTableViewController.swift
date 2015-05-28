@@ -11,22 +11,14 @@ import UIKit
 
 class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating, CloudKitHelperDelegate{
     
-    
-    lazy var modelCD:Array<Vestibular> = {
-        return VestibularManager.sharedInstance.findVestibular()
-        }()
-    
     let model = CloudKitHelper.sharedInstance()
-    var resultadoBusca = [VestibularCloud]()
+    var resultadoBusca = [FaculdadeCloud]()
     var resultadoBuscaController = UISearchController()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         model.delegate = self
-//        model.refreshVestibular()       
-//        refreshControl = UIRefreshControl()
-//        refreshControl?.addTarget(model, action: "refreshVestibular", forControlEvents: .ValueChanged) //atualiza a tabela puxando para baixo
         
         self.resultadoBuscaController = ({
             let controller = UISearchController(searchResultsController: nil)
@@ -39,12 +31,13 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             
             return controller
         })()
+        
+        if model.faculdades.count == 0 {
+            let alert = UIAlertView(title: "Oops, deu ruim!",
+                message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
 
-    }
-    
-    override func viewDidAppear(animated: Bool){
-        modelCD = VestibularManager.sharedInstance.findVestibular()
-        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning()
@@ -60,7 +53,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             return self.resultadoBusca.count
         }
         else
-        {       return modelCD.count     }
+        {       return model.faculdades.count     }
     }
 
     
@@ -72,18 +65,18 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             cell.nomeLabel.text = resultadoBusca[indexPath.row].nome
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd/MM"
-            var inscString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataFimInsc)
+            var inscString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].vestibular!.dataFimInsc)
             cell.inscricaoLabel.text = inscString
-            var provaString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataProvas[0])
+            var provaString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].vestibular!.dataProvas[0])
             cell.provaLabel.text = provaString
         }
         else {
-            cell.nomeLabel.text = modelCD[indexPath.row].nome
+            cell.nomeLabel.text = model.faculdades[indexPath.row].nome
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd/MM"
-            var inscString = dateFormatter.stringFromDate(modelCD[indexPath.row].dataFimInsc)
+            var inscString = dateFormatter.stringFromDate(model.faculdades[indexPath.row].vestibular!.dataFimInsc)
             cell.inscricaoLabel.text = inscString
-            var provaString = dateFormatter.stringFromDate(modelCD[indexPath.row].dataProvas[0] as! NSDate)
+            var provaString = dateFormatter.stringFromDate(model.faculdades[indexPath.row].vestibular!.dataProvas[0])
             cell.provaLabel.text = provaString
         }
 
@@ -92,10 +85,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     
     //MARK: - CloudKitHelper Delegate
     
-    func modelUpdated()
-    {
-//        refreshControl?.endRefreshing()
-//        tableView.reloadData()
+    func modelUpdated(){
     }
     
     func errorUpdating(error: NSError)
@@ -110,9 +100,14 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        self.resultadoBuscaController.active = false
-        if let destino = segue.destinationViewController as? DetailViewController
-        {       destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]       }
+        if let destino = segue.destinationViewController as? DetailViewController {
+            if self.resultadoBuscaController.active {
+                destino.faculdade = resultadoBusca[tableView.indexPathForSelectedRow()!.row]
+            }
+            else {
+                destino.faculdade = model.faculdades[tableView.indexPathForSelectedRow()!.row]
+            }
+        }
     }
     
     // MARK: - Busca
@@ -123,16 +118,16 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
         var arrayNomes: NSMutableArray = []
         var arrayDetalhes: NSMutableArray = []
         
-        for vestibular in model.vestibulares
-        {       arrayNomes.addObject(vestibular.nome)       }
+        for faculdade in model.faculdades
+        {       arrayNomes.addObject(faculdade.nome)       }
         
         let predicado = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
         let array = (arrayNomes as NSArray).filteredArrayUsingPredicate(predicado)
         
-        for vest in model.vestibulares {
+        for fac in model.faculdades {
             for nome in array {
-                if vest.nome == nome as! String {
-                    self.resultadoBusca.append(vest)
+                if fac.nome == nome as! String {
+                    self.resultadoBusca.append(fac)
                 }
             }
         }
