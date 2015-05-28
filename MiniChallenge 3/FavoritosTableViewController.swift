@@ -10,7 +10,6 @@ import UIKit
 
 class FavoritosTableViewController: UITableViewController {
     
-    let model = CloudKitHelper.sharedInstance()
     lazy var modelCD:Array<Faculdade> = {
         return FaculdadeManager.sharedInstance.findFaculdade()
         }()
@@ -105,23 +104,9 @@ class FavoritosTableViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if let destino = segue.destinationViewController as? DetailViewController
-        {       destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]       }
-    }
-    
-    
-    func modelUpdated()
-    {
-        refreshControl?.endRefreshing()
-        tableView.reloadData()
-    }
-    
-    func errorUpdating(error: NSError)
-    {
-        let message = error.localizedDescription
-        let alert = UIAlertView(title: "Oops, deu ruim!",
-            message: "Você não está conectado à rede de dados", delegate: nil, cancelButtonTitle: "OK")
-        alert.show()
+        if let destino = segue.destinationViewController as? DetailViewController {
+            //destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]
+        }
     }
 
 }

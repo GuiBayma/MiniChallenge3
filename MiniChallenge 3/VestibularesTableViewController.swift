@@ -11,6 +11,11 @@ import UIKit
 
 class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating, CloudKitHelperDelegate{
     
+    
+    lazy var modelCD:Array<Vestibular> = {
+        return VestibularManager.sharedInstance.findVestibular()
+        }()
+    
     let model = CloudKitHelper.sharedInstance()
     var resultadoBusca = [VestibularCloud]()
     var resultadoBuscaController = UISearchController()
@@ -36,6 +41,11 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
         })()
 
     }
+    
+    override func viewDidAppear(animated: Bool){
+        modelCD = VestibularManager.sharedInstance.findVestibular()
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning()
     {       super.didReceiveMemoryWarning()     }
@@ -50,7 +60,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             return self.resultadoBusca.count
         }
         else
-        {       return model.vestibulares.count     }
+        {       return modelCD.count     }
     }
 
     
@@ -68,12 +78,12 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             cell.provaLabel.text = provaString
         }
         else {
-            cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
+            cell.nomeLabel.text = modelCD[indexPath.row].nome
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd/MM"
-            var inscString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataFimInsc)
+            var inscString = dateFormatter.stringFromDate(modelCD[indexPath.row].dataFimInsc)
             cell.inscricaoLabel.text = inscString
-            var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
+            var provaString = dateFormatter.stringFromDate(modelCD[indexPath.row].dataProvas[0] as! NSDate)
             cell.provaLabel.text = provaString
         }
 
@@ -84,8 +94,8 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     
     func modelUpdated()
     {
-        refreshControl?.endRefreshing()
-        tableView.reloadData()
+//        refreshControl?.endRefreshing()
+//        tableView.reloadData()
     }
     
     func errorUpdating(error: NSError)

@@ -20,9 +20,6 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
         // Do any additional setup after loading the view.
         model.delegate = self
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityStatusChanged", name: "ReachStatusChanged", object: nil)
-        model.refreshFaculdade()
-        model.refreshVestibular()
-        model.refreshCurso()
     }
 
     override func didReceiveMemoryWarning()
@@ -40,6 +37,9 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
             /*já tem um método q tem um alerta*/
         }else if reachabilityStatus == kReachableWithWifi{
             /*não precisa de um alerta pq já vai direto*/
+            model.refreshFaculdade()
+            model.refreshVestibular()
+            model.refreshCurso()
             NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)
         }else if reachabilityStatus == kReachableWithWwan{
             //Alerta
@@ -52,6 +52,9 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
             alerta.addAction(acao1)
             
             let acao2: UIAlertAction = UIAlertAction (title: "Sim", style: .Default){       action -> Void in
+                self.model.refreshFaculdade()
+                self.model.refreshVestibular()
+                self.model.refreshCurso()
                 NSNotificationCenter.defaultCenter().postNotificationName("DownloadRedeMovel", object: nil)
             }
             alerta.addAction(acao2)
@@ -63,10 +66,7 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
     deinit
     {       NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)      }
     
-    func modelUpdated()
-    {
-//        refreshControl?.endRefreshing()
-//        tableView.reloadData()
+    func modelUpdated() {
     }
     
     func errorUpdating(error: NSError)
