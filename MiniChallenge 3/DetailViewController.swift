@@ -19,12 +19,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var inscFimLabel: UILabel!
     @IBOutlet weak var dataProvaLabel: UITextView!
     @IBOutlet weak var detalhesLabel: UITextView!
+    @IBOutlet weak var botaoFavorito: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        var favoritosBotao = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "salvarFavorito")
-        self.navigationItem.rightBarButtonItem = favoritosBotao
+        botaoFavorito.titleLabel?.text = ""
     }
 
     override func viewWillAppear(animated: Bool)
@@ -36,8 +36,10 @@ class DetailViewController: UIViewController {
         
         if vestibular.favorito == 1 {
             nomeLabel.text = "\(vestibular.nome) ★"
+            botaoFavorito.imageView?.image = UIImage(named: "favorito")
         } else {
             nomeLabel.text = vestibular.nome
+            botaoFavorito.imageView?.image = UIImage(named: "naoFavorito")
         }
         inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
@@ -63,11 +65,13 @@ class DetailViewController: UIViewController {
     func salvarFavorito() {
         if vestibular.favorito == 1 {
             nomeLabel.text = vestibular.nome
+            botaoFavorito.imageView?.image = UIImage(named: "naoFavorito")
             
             let vest = VestibularManager.sharedInstance.findVestibularByName(vestibular.nome)
             VestibularManager.sharedInstance.deleteVestibular(vest)
         } else {
             nomeLabel.text = "\(vestibular.nome) ★"
+            botaoFavorito.imageView?.image = UIImage(named: "favorito")
             
             // CoreData
             var vestibularCD = VestibularManager.sharedInstance.newVestibular()
@@ -80,6 +84,10 @@ class DetailViewController: UIViewController {
             vestibularCD.dataProvas = vestibular.dataProvas as [NSDate]
             VestibularManager.sharedInstance.saveVestibular()
         }
+    }
+    
+    @IBAction func alterarFavorito(sender: UIButton) {
+        salvarFavorito()
     }
 
 }

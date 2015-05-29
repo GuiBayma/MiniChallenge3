@@ -43,7 +43,7 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
             NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)
         }else if reachabilityStatus == kReachableWithWwan{
             //Alerta
-            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Vc está prestes a usar uma quantidade muito grande de dados. Deseja continuar mesmo assim? ", preferredStyle: .Alert)
+            let alerta: UIAlertController = UIAlertController (title: "Atenção", message: "Você está prestes a usar uma quantidade grande de dados. Deseja continuar? ", preferredStyle: .Alert)
             
             let acao1: UIAlertAction = UIAlertAction (title: "Não", style: .Default){       action -> Void in
                 /* nao vai acontecer nada, tem q colocar notificação */

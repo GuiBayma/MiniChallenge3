@@ -134,11 +134,12 @@
             </objects>
             <point key="canvasLocation" x="1968" y="-207"/>
         </scene>
-        <!--Calendario-->
+        <!--Navigation Controller-->
         <scene sceneID="fe3-NT-b2V">
             <objects>
                 <navigationController id="W05-ma-8pl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendario" image="calendarioIcone" id="Xrg-wO-ees">
+                    <tabBarItem key="tabBarItem" title="" image="calendarioIcone" id="Xrg-wO-ees">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="calendarioIconeSelecionado"/>
                         </userDefinedRuntimeAttributes>
@@ -196,7 +197,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="detalhes" translatesAutoresizingMaskIntoConstraints="NO" id="fCF-be-lCO">
-                                <rect key="frame" x="21" y="419" width="513" height="128"/>
+                                <rect key="frame" x="21" y="432" width="513" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="5vq-vM-l0P"/>
@@ -205,27 +206,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-8g-0lC">
-                                <rect key="frame" x="478" y="180" width="80" height="80"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-8g-0lC">
+                                <rect key="frame" x="484" y="191" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0bl-JH-Am7"/>
+                                    <constraint firstAttribute="height" constant="80" id="P0j-Av-EzC"/>
+                                </constraints>
                                 <state key="normal" title="favorito">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="alterarFavorito:" destination="vfC-yM-PUL" eventType="touchUpInside" id="tYn-Qa-iDg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="V4k-8V-Khj" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" constant="50" id="201-V8-fc1"/>
                             <constraint firstItem="fCF-be-lCO" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" constant="50" id="8ZH-9s-nuV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDL-8g-0lC" secondAttribute="trailing" constant="20" id="9ql-o3-Zok"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fCF-be-lCO" secondAttribute="trailing" constant="50" id="AlV-WA-quV"/>
                             <constraint firstItem="V4k-8V-Khj" firstAttribute="leading" secondItem="VuS-Ou-9vP" secondAttribute="trailing" constant="60" id="ENt-VG-7fl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V4k-8V-Khj" secondAttribute="trailing" constant="50" id="Hlf-hp-m3H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V4k-8V-Khj" secondAttribute="trailing" constant="50" id="K9e-0f-LxH"/>
                             <constraint firstItem="V4k-8V-Khj" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" constant="5" id="KqF-As-6yZ"/>
                             <constraint firstItem="4ba-i8-6t5" firstAttribute="top" secondItem="YOS-Hb-GDe" secondAttribute="bottom" constant="30" id="LZU-w2-boy"/>
-                            <constraint firstItem="fCF-be-lCO" firstAttribute="top" secondItem="V4k-8V-Khj" secondAttribute="bottom" constant="18" id="N5x-9q-QbH"/>
+                            <constraint firstItem="fCF-be-lCO" firstAttribute="top" secondItem="V4k-8V-Khj" secondAttribute="bottom" constant="15" id="N5x-9q-QbH"/>
+                            <constraint firstItem="kDL-8g-0lC" firstAttribute="top" secondItem="3BJ-x0-GmX" secondAttribute="bottom" constant="-10" id="UfU-Ud-XG7"/>
                             <constraint firstItem="V4k-8V-Khj" firstAttribute="top" secondItem="VuS-Ou-9vP" secondAttribute="bottom" constant="38" id="aFo-nx-mWX"/>
                             <constraint firstItem="3BJ-x0-GmX" firstAttribute="top" secondItem="4ba-i8-6t5" secondAttribute="bottom" constant="50" id="b0m-Dn-d08"/>
-                            <constraint firstItem="fCF-be-lCO" firstAttribute="top" secondItem="V4k-8V-Khj" secondAttribute="bottom" constant="2" id="hYz-JW-7hy"/>
+                            <constraint firstItem="fCF-be-lCO" firstAttribute="top" secondItem="V4k-8V-Khj" secondAttribute="bottom" constant="10" id="hYz-JW-7hy"/>
                             <constraint firstAttribute="centerX" secondItem="4ba-i8-6t5" secondAttribute="centerX" id="iki-Xi-GqE"/>
                             <constraint firstAttribute="centerX" secondItem="4ba-i8-6t5" secondAttribute="centerX" id="isL-5i-nuo"/>
                             <constraint firstItem="fCF-be-lCO" firstAttribute="leading" secondItem="hZ8-Ok-hw5" secondAttribute="leadingMargin" constant="5" id="j6U-xD-AHc"/>
@@ -238,14 +248,18 @@
                             <mask key="constraints">
                                 <exclude reference="iki-Xi-GqE"/>
                                 <exclude reference="xBO-s9-4xI"/>
+                                <exclude reference="201-V8-fc1"/>
                                 <exclude reference="ENt-VG-7fl"/>
                                 <exclude reference="Hlf-hp-m3H"/>
+                                <exclude reference="8ZH-9s-nuV"/>
+                                <exclude reference="hYz-JW-7hy"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="botaoFavorito" destination="kDL-8g-0lC" id="ytu-Su-Q3N"/>
                         <outlet property="dataProvaLabel" destination="V4k-8V-Khj" id="7Gq-DF-FFw"/>
                         <outlet property="detalhesLabel" destination="fCF-be-lCO" id="eaA-pf-eYc"/>
                         <outlet property="inscFimLabel" destination="VuS-Ou-9vP" id="Bea-eR-Xfh"/>
@@ -313,11 +327,12 @@
             </objects>
             <point key="canvasLocation" x="1968" y="1372"/>
         </scene>
-        <!--Ajustes-->
+        <!--Navigation Controller-->
         <scene sceneID="X6S-Om-Kav">
             <objects>
                 <navigationController id="aBJ-H3-zmK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="ajusteIcone" id="eH9-7f-ZOy">
+                    <tabBarItem key="tabBarItem" title="" image="ajusteIcone" id="eH9-7f-ZOy">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="ajusteIconeSelecionado"/>
                         </userDefinedRuntimeAttributes>
@@ -353,11 +368,12 @@
             </objects>
             <point key="canvasLocation" x="300" y="2151"/>
         </scene>
-        <!--Favoritos-->
+        <!--Navigation Controller-->
         <scene sceneID="JL8-7M-QIx">
             <objects>
                 <navigationController id="fSi-Fb-6Gi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favoritos" image="favoritosIcone" id="RxQ-IS-OjC">
+                    <tabBarItem key="tabBarItem" title="" image="favoritosIcone" id="RxQ-IS-OjC">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="favoritosIconeSelecionado"/>
                         </userDefinedRuntimeAttributes>
@@ -374,11 +390,12 @@
             </objects>
             <point key="canvasLocation" x="1148" y="1372"/>
         </scene>
-        <!--Vestibulares-->
+        <!--Navigation Controller-->
         <scene sceneID="rL6-Fc-yAm">
             <objects>
                 <navigationController id="6lf-cr-wLI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vestibulares" image="vestibularesIcon" id="vMi-0i-DCu">
+                    <tabBarItem key="tabBarItem" title="" image="vestibularesIcon" id="vMi-0i-DCu">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="vestibularesIconSelecionado"/>
                         </userDefinedRuntimeAttributes>

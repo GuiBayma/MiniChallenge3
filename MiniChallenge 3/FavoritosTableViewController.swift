@@ -25,6 +25,7 @@ class FavoritosTableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool){
         modelCD = FaculdadeManager.sharedInstance.findFaculdade()
         self.tableView.reloadData()
+        tabBarController?.tabBar.tintColor = UIColor(red: 230.0/255.0, green: 39.0/255.0, blue: 45.0/255.0, alpha: 1)
     }
     
     
