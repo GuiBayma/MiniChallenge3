@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var inscFimLabel: UILabel!
     @IBOutlet weak var dataProvaLabel: UITextView!
     @IBOutlet weak var detalhesLabel: UITextView!
-    @IBOutlet weak var favoritoIcone: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
         inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
         
-        var datas = "Data das provas:\n"
+        var datas = "Data da(s) prova(s):\n"
         for data in vestibular.dataProvas
         {       datas += "\(dateFormatter.stringFromDate(data)) \n"     }
         
@@ -47,18 +47,12 @@ class DetailViewController: UIViewController {
         
         detalhesLabel.text = vestibular.detalhes
         
-        for fac in model.faculdades {
-            if fac.nome == vestibular.nome {
-                faculdade = fac
-            }
-        }
-        
-        if faculdade.favorito == 1 {
-            favoritoIcone.image = UIImage(named: "favoritosIconeSelecionado")
-        }
-        else {
-           favoritoIcone.image = UIImage(named: "favoritosIcone")
-        }
+//        if faculdade.favorito == 1 {
+//            favoritoIcone.image = UIImage(named: "favoritosIconeSelecionado")
+//        }
+//        else {
+//           favoritoIcone.image = UIImage(named: "favoritosIcone")
+//        }
     }
     
     override func viewWillDisappear(animated: Bool)
