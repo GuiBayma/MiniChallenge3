@@ -51,7 +51,7 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("celulaCalendario", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = organiza.getNomesFaculdades(indexPath.section, linha: indexPath.row)
+        cell.textLabel?.text = organiza.getNomesVestibulares(indexPath.section, linha: indexPath.row)
 
         return cell
     }
@@ -70,7 +70,8 @@ class CalendarioTableViewController: UITableViewController, CloudKitHelperDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if let destino = segue.destinationViewController as? DetailViewController {
-            //destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.section]
+            let nomeVest = organiza.getNomesVestibulares(tableView.indexPathForSelectedRow()!.section, linha: tableView.indexPathForSelectedRow()!.row)
+            destino.vestibular = organiza.getVestibularByNome(nomeVest)
         }
     }
 

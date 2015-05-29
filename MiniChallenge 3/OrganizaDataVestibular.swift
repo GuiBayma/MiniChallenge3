@@ -65,9 +65,18 @@ class OrganizaDataVestibular {
     func getDiaProva(secao : Int) -> NSDate
     {       return self.dias[secao]     }
     
-    func getNomesFaculdades(secao : Int, linha : Int) -> String
+    func getNomesVestibulares(secao : Int, linha : Int) -> String
     {
         let dia = self.dias[secao]
         return self.diasEProvas[dia]![linha]
+    }
+    
+    func getVestibularByNome(nome: String) -> VestibularCloud? {
+        for vestibular in vestibulares {
+            if vestibular.nome == nome {
+                return vestibular
+            }
+        }
+        return nil
     }
 }
