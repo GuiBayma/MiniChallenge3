@@ -51,4 +51,25 @@ public class VestibularManager {
         return [Vestibular]()
     }
     
+    func findVestibularByName(nome: String) -> Vestibular {
+        let predicate = NSPredicate(format: "nome == %@", nome)
+        let fetchRequest = NSFetchRequest(entityName: VestibularManager.entityName)
+        fetchRequest.predicate = predicate
+        var error:NSError?
+        
+        let fetchedResult = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        if let result = fetchedResult as? [Vestibular] {
+            return result[0]
+        } else {
+            println("Could not fetch. Error: \(error), \(error!.userInfo)")
+        }
+        
+        return Vestibular()
+    }
+    
+    func deleteVestibular(vestibular: Vestibular) {
+        managedContext.delete(vestibular)
+    }
+    
 }

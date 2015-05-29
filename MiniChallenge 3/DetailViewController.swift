@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var inscFimLabel: UILabel!
     @IBOutlet weak var dataProvaLabel: UITextView!
     @IBOutlet weak var detalhesLabel: UITextView!
-    @IBOutlet weak var favoritoIcone: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,11 @@ class DetailViewController: UIViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         
-        nomeLabel.text = vestibular.nome
+        if vestibular.favorito == 1 {
+            nomeLabel.text = "\(vestibular.nome) ★"
+        } else {
+            nomeLabel.text = vestibular.nome
+        }
         inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
         
@@ -46,19 +49,6 @@ class DetailViewController: UIViewController {
         dataProvaLabel.text = datas
         
         detalhesLabel.text = vestibular.detalhes
-        
-        for fac in model.faculdades {
-            if fac.nome == vestibular.nome {
-                faculdade = fac
-            }
-        }
-        
-        if faculdade.favorito == 1 {
-            favoritoIcone.image = UIImage(named: "favoritosIconeSelecionado")
-        }
-        else {
-           favoritoIcone.image = UIImage(named: "favoritosIcone")
-        }
     }
     
     override func viewWillDisappear(animated: Bool)
@@ -71,7 +61,25 @@ class DetailViewController: UIViewController {
     }
     
     func salvarFavorito() {
-        nomeLabel.text = "\(vestibular.nome) ★"
+        if vestibular.favorito == 1 {
+            nomeLabel.text = vestibular.nome
+            
+            let vest = VestibularManager.sharedInstance.findVestibularByName(vestibular.nome)
+            VestibularManager.sharedInstance.deleteVestibular(vest)
+        } else {
+            nomeLabel.text = "\(vestibular.nome) ★"
+            
+            // CoreData
+            var vestibularCD = VestibularManager.sharedInstance.newVestibular()
+            vestibularCD.nome = vestibular.nome
+            vestibularCD.detalhes = vestibular.detalhes
+            vestibularCD.dataInicioInsc = vestibular.dataInicioInsc
+            vestibularCD.dataFimInsc = vestibular.dataFimInsc
+            vestibularCD.dataGabarito = vestibular.dataGabarito
+            vestibularCD.dataChamada = vestibular.dataChamada as [NSDate]?
+            vestibularCD.dataProvas = vestibular.dataProvas as [NSDate]
+            VestibularManager.sharedInstance.saveVestibular()
+        }
     }
 
 }
