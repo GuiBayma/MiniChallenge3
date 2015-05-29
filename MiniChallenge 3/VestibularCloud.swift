@@ -20,6 +20,7 @@ class VestibularCloud : NSObject {
     var dataGabarito : NSDate?
     var dataChamada : [NSDate]?
     var dataProvas : [NSDate]!
+    var favorito : NSNumber!
     
     init(record : CKRecord, database: CKDatabase) {
         self.record = record
@@ -32,6 +33,7 @@ class VestibularCloud : NSObject {
         self.dataGabarito = record.objectForKey("dataGabarito") as? NSDate
         self.dataChamada = record.objectForKey("dataChamadas") as? [NSDate]
         self.dataProvas = record.objectForKey("dataProvas") as! [NSDate]
+        self.favorito = record.objectForKey("favorito") as! NSNumber
     }
     
 }

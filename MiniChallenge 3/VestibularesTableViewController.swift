@@ -69,6 +69,11 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             cell.inscricaoLabel.text = inscString
             var provaString = dateFormatter.stringFromDate(resultadoBusca[indexPath.row].dataProvas[0])
             cell.provaLabel.text = provaString
+            if resultadoBusca[indexPath.row].favorito == 1 {
+                cell.favoritoIcone.image = UIImage(named: "favorito")
+            } else {
+                cell.favoritoIcone.image = UIImage(named: "naoFavorito")
+            }
         }
         else {
             cell.nomeLabel.text = model.vestibulares[indexPath.row].nome
@@ -78,6 +83,11 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
             cell.inscricaoLabel.text = inscString
             var provaString = dateFormatter.stringFromDate(model.vestibulares[indexPath.row].dataProvas[0])
             cell.provaLabel.text = provaString
+            if model.vestibulares[indexPath.row].favorito == 1 {
+                cell.favoritoIcone.image = UIImage(named: "favorito")
+            } else {
+                cell.favoritoIcone.image = UIImage(named: "naoFavorito")
+            }
         }
 
         return cell
@@ -103,6 +113,7 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
                 destino.vestibular = model.vestibulares[tableView.indexPathForSelectedRow()!.row]
             }
         }
+        self.resultadoBuscaController.active = false
     }
     
     // MARK: - Busca

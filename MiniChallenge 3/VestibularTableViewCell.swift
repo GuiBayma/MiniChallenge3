@@ -20,5 +20,6 @@ class VestibularTableViewCell: UITableViewCell {
     @IBOutlet weak var inscricaoLabel: UILabel!
     @IBOutlet weak var provaLabel: UILabel!
     @IBOutlet weak var imagem: UIImageView!
+    @IBOutlet weak var favoritoIcone: UIImageView!
     
 }

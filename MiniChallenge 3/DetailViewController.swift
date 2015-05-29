@@ -21,8 +21,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detalhesLabel: UITextView!
     @IBOutlet weak var favoritoIcone: UIImageView!
     
-    override func viewDidLoad()
-    {       super.viewDidLoad()     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        var favoritosBotao = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "salvarFavorito")
+        self.navigationItem.rightBarButtonItem = favoritosBotao
+    }
 
     override func viewWillAppear(animated: Bool)
     {
@@ -64,6 +68,10 @@ class DetailViewController: UIViewController {
         inscFimLabel.text = ""
         dataProvaLabel.text = ""
         detalhesLabel.text = ""
+    }
+    
+    func salvarFavorito() {
+        nomeLabel.text = "\(vestibular.nome) ★"
     }
 
 }

@@ -71,8 +71,8 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
     }
     
     func cloudSync() {
-        self.model.refreshFaculdade()
+        //self.model.refreshFaculdade()
         self.model.refreshVestibular()
-        self.model.refreshCurso()
+        //self.model.refreshCurso()
     }
 }
