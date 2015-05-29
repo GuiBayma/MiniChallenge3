@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
         inscInicioLabel.text = "Inicio das inscrições: \(dateFormatter.stringFromDate(vestibular.dataInicioInsc))"
         inscFimLabel.text = "Fim das inscrições: \(dateFormatter.stringFromDate(vestibular.dataFimInsc))"
         
-        var datas = "Data das provas:\n"
+        var datas = "Data da(s) prova(s):\n"
         for data in vestibular.dataProvas
         {       datas += "\(dateFormatter.stringFromDate(data)) \n"     }
         
