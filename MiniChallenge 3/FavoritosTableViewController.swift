@@ -10,11 +10,11 @@ import UIKit
 
 class FavoritosTableViewController: UITableViewController {
     
-    lazy var modelCD:Array<Faculdade> = {
-        return FaculdadeManager.sharedInstance.findFaculdade()
+    lazy var modelCD:Array<Vestibular> = {
+        return VestibularManager.sharedInstance.findVestibular()
         }()
     
-    var favoritos = [Faculdade]()
+    var favoritos = [Vestibular]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class FavoritosTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool){
-        modelCD = FaculdadeManager.sharedInstance.findFaculdade()
+        modelCD = VestibularManager.sharedInstance.findVestibular()
         self.tableView.reloadData()
         tabBarController?.tabBar.tintColor = UIColor(red: 230.0/255.0, green: 39.0/255.0, blue: 45.0/255.0, alpha: 1)
     }

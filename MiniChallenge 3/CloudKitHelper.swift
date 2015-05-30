@@ -97,17 +97,18 @@ protocol CloudKitHelperDelegate {
                     self.vestibulares.append(vestibular)
                     
                     //CORE DATA
-//                    dispatch_async(dispatch_get_main_queue()){
-//                        var vestibularCD = VestibularManager.sharedInstance.newVestibular()
-//                        vestibularCD.nome = vestibular.nome
-//                        vestibularCD.detalhes = vestibular.detalhes
-//                        vestibularCD.dataInicioInsc = vestibular.dataInicioInsc
-//                        vestibularCD.dataFimInsc = vestibular.dataFimInsc
-//                        vestibularCD.dataGabarito = vestibular.dataGabarito
-//                        vestibularCD.dataChamada = vestibular.dataChamada as [NSDate]?
-//                        vestibularCD.dataProvas = vestibular.dataProvas as [NSDate]
-//                        VestibularManager.sharedInstance.saveVestibular()
-//                    }
+                    dispatch_async(dispatch_get_main_queue()){
+                        var vestibularCD = VestibularManager.sharedInstance.newVestibular()
+                        vestibularCD.nome = vestibular.nome
+                        vestibularCD.detalhes = vestibular.detalhes
+                        vestibularCD.dataInicioInsc = vestibular.dataInicioInsc
+                        vestibularCD.dataFimInsc = vestibular.dataFimInsc
+                        vestibularCD.dataGabarito = vestibular.dataGabarito
+                        vestibularCD.dataChamada = vestibular.dataChamada as [NSDate]?
+                        vestibularCD.dataProvas = vestibular.dataProvas as [NSDate]
+                        vestibularCD.favorito = vestibular.favorito
+                        VestibularManager.sharedInstance.saveVestibular()
+                    }
                 }
                 dispatch_async(dispatch_get_main_queue()) {
                     self.delegate?.modelUpdated()

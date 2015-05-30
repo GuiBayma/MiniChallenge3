@@ -39,7 +39,7 @@ class InicialViewController: UIViewController, CloudKitHelperDelegate {
             alert.show()
         }else if reachabilityStatus == kReachableWithWifi{
             /*não precisa de um alerta pq já vai direto*/
-            cloudSync()
+            self.cloudSync()
             NSNotificationCenter.defaultCenter().postNotificationName("CarregandoDados", object: self)
         }else if reachabilityStatus == kReachableWithWwan{
             //Alerta
