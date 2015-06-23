@@ -360,7 +360,19 @@
                     <view key="view" contentMode="scaleToFill" id="SLW-1i-bQn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Em construção!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Us9-4h-bjd">
+                                <rect key="frame" x="240" y="289.5" width="120.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Us9-4h-bjd" secondAttribute="centerX" id="fo9-Xo-cRL"/>
+                            <constraint firstAttribute="centerY" secondItem="Us9-4h-bjd" secondAttribute="centerY" id="kaA-Jg-Qv8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ajustes" id="cKg-8z-POY"/>
                 </viewController>
@@ -459,7 +471,6 @@
                         <segue destination="fSi-Fb-6Gi" kind="relationship" relationship="viewControllers" id="wqo-vV-suO"/>
                         <segue destination="6lf-cr-wLI" kind="relationship" relationship="viewControllers" id="0mB-9Y-w3k"/>
                         <segue destination="W05-ma-8pl" kind="relationship" relationship="viewControllers" id="TSE-fv-UaW"/>
-                        <segue destination="aBJ-H3-zmK" kind="relationship" relationship="viewControllers" id="28A-e1-CX2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhs-2g-hEc" userLabel="First Responder" sceneMemberID="firstResponder"/>

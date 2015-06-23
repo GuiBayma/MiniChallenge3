@@ -9,9 +9,9 @@
 import UIKit
 
 
-class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating {
+class VestibularesTableViewController: UITableViewController, UISearchResultsUpdating, CloudKitHelperDelegate {
     
-    
+    let modelCloud = CloudKitHelper.sharedInstance()
     lazy var modelCD:Array<Vestibular> = {
         return VestibularManager.sharedInstance.findVestibular()
         }()
@@ -21,6 +21,9 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        modelCloud.delegate = self
+        modelCloud.refreshVestibular()
         
         self.resultadoBuscaController = ({
             let controller = UISearchController(searchResultsController: nil)
@@ -113,10 +116,10 @@ class VestibularesTableViewController: UITableViewController, UISearchResultsUpd
     {
         if let destino = segue.destinationViewController as? DetailViewController {
             if self.resultadoBuscaController.active {
-//                destino.vestibular = resultadoBusca[tableView.indexPathForSelectedRow()!.row]
+                destino.vestibular = modelCloud.vestibulares[tableView.indexPathForSelectedRow()!.row]
             }
             else {
-//                destino.vestibular = modelCD[tableView.indexPathForSelectedRow()!.row]
+                destino.vestibular = modelCloud.vestibulares[tableView.indexPathForSelectedRow()!.row]
             }
         }
         self.resultadoBuscaController.active = false
